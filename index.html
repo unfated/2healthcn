@@ -153,8 +153,9 @@ img,svg,canvas{display:block;max-width:100%}
   display:inline-flex;align-items:center;gap:.5rem}
 .badge .live{width:7px;height:7px;border-radius:50%;background:#4FE0A0;box-shadow:0 0 0 0 rgba(79,224,160,.6);animation:pulse 2.4s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,224,160,.55)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.hero h1{font-size:clamp(2.5rem,5.4vw,4.05rem);letter-spacing:-.02em;margin-bottom:1.3rem;color:#fff}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.05rem);letter-spacing:-.02em;margin-bottom:.85rem;color:#fff}
 .hero h1 em{font-style:normal;background:linear-gradient(100deg,#9AB0FF,#6E8BFF 60%,#C7D3F4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-slogan{font-family:var(--font-sans);font-weight:600;font-size:clamp(1.06rem,1.7vw,1.32rem);line-height:1.38;color:#9AB0FF;max-width:35rem;margin:0 0 1.2rem}
 .hero .lead{color:#C7CEEC;max-width:34rem;margin-bottom:1rem}
 .hero .zh{color:#9AA6DC;font-size:1rem;margin-bottom:2rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.2rem}
@@ -292,7 +293,7 @@ img,svg,canvas{display:block;max-width:100%}
 .super .credits{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.9rem;font-family:var(--font-mono);font-size:.74rem;color:var(--ink)}
 .super .credits span{display:inline-flex;align-items:center;gap:.45rem}
 .super .credits span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.advisors{grid-template-columns:repeat(3,1fr);gap:.8rem}
+.advisors{grid-template-columns:repeat(4,1fr);gap:.8rem}
 .adv{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem 1.2rem}
 .adv .r{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
 .adv h4{font-family:var(--font-sans);font-weight:650;font-size:1rem;margin-bottom:.15rem}
@@ -417,6 +418,7 @@ section[id]{scroll-margin-top:5.2rem}
           <span class="badge"><span class="live"></span>Live at 2health.ai</span>
         </div>
         <h1>The world's first <em>Human Digital Twin</em> profiling system.</h1>
+        <p class="hero-slogan">The Core AI Engine for Digital Public Infrastructure of Health</p>
         <p class="lead">One living health twin per person — uniting genomic, clinical and wearable data to predict disease, prevent illness, and personalize health for life.</p>
         <p class="zh">以人工智能賦能醫療健康 — 為每個人建立終身的數字健康孿生。</p>
         <div class="hero-cta">
@@ -722,12 +724,10 @@ section[id]{scroll-margin-top:5.2rem}
       </div>
 
       <div class="grid advisors">
-        <div class="adv reveal"><div class="r">Chief Technology Advisor</div><h4>Dr. Justin Tubbs</h4><span>Harvard Medical School, Boston</span></div>
         <div class="adv reveal"><div class="r">Scientific Advisor</div><h4>Dr. Thach Quoc Thuan</h4><span>HKU, Hong Kong</span></div>
         <div class="adv reveal"><div class="r">Legal Counsel</div><h4>Ms. Shen Xiaoyu</h4><span>Fudan University, Shanghai</span></div>
-        <div class="adv reveal"><div class="r">Marketing Consultant</div><h4>Mr. Louis Cheung</h4><span>HKU, Hong Kong</span></div>
         <div class="adv reveal"><div class="r">Business Advisor</div><h4>Ms. Alison Chan</h4><span>Nanfung Group, Hong Kong</span></div>
-        <div class="adv reveal"><div class="r">Supervisory Board</div><h4>Guan Jiaming · Yang Jiajie</h4><span>Fudan University, Shanghai</span></div>
+        <div class="adv reveal"><div class="r">Supervisory Board</div><h4>Yang Jiajie</h4><span>Fudan University, Shanghai</span></div>
       </div>
     </div>
   </section>
