@@ -1,34 +1,37 @@
 # 2healthcn
 
-Official corporate website for **2Health AI** (`2HEALTH AI LIMITED`, Hong Kong), served at **[2health.cn](https://2health.cn)** — the world's first **Human Digital Twin Profiling System**.
+Official corporate website for **2Health AI** (`2HEALTH AI LIMITED`, Hong Kong), served at **[2health.cn](https://2health.cn)** — the world's first **Human Digital Twin Profiling System** and the core AI engine for Digital Public Infrastructure of Health.
 
-This is the company's public site — distinct from the product platform at **[2health.ai](https://2health.ai)**, which it links out to.
+Distinct from the product platform at **[2health.ai](https://2health.ai)**, which it links out to.
 
 ## Contents
 
 - `index.html` — the complete, self-contained website (single file, no build step, no external dependencies, no network requests).
 
-## Content
+## Sections
 
-The site presents the full 2Health AI story, adapted from the company pitch:
+Hero · Vision & Mission · Problem (+ "Why now") · Solution · Why 2Health AI (differentiators) · Platform · Who it's for · Technology · Applications & pipeline · Traction · Market · Business model · Trust, privacy & compliance · Team & advisors · Recognition · Contact.
 
-- **Hero** — the Human Digital Twin positioning, with an animated DNA double-helix.
-- **Problem / Solution** — why health data is wasted today, and the personal AI health twin (Integrate → Predict → Personalize).
-- **Platform** — the three interfaces (Personal, Doctor, Supplier) with completion status.
-- **Technology** — the scientific moat: phenotypes, genomic variants, GWAS, AUC, mixture-of-experts models, data flywheel, academic backing.
-- **Traction, Market, Business model** — live product, pilots, partnerships, market size, and revenue streams.
-- **Team & advisors** — founders, scientific supervisor (Prof. Pak Sham), and the advisory board.
-- **Recognition** — awards, grants and incubation.
-- **Contact** — founder contact details and a link to the platform.
+The public content is adapted from the company's pitch and business plan.
 
-> **Note:** The confidential fundraising terms from the pitch deck (the seed round ask, valuation, equity offered, runway, and use-of-funds breakdown) are intentionally **not** included on this public site.
+## What is intentionally NOT published
+
+The business plan is confidential; only public-appropriate material was used. The following are **deliberately excluded** from this public site:
+
+- All financials and 5-year projections, unit economics (CAC / LTV / margins), and cost structure.
+- Fundraising terms (seed amount, valuation, equity offered, runway) and the use-of-funds breakdown.
+- Legal-entity structure, cap table and shareholding percentages.
+- Granular pricing and revenue-share rates; TAM/SAM/SOM revenue targets.
+- Hiring plan and the internal risk register.
+
+The pilot / partnership / expansion items are kept **anonymized** on purpose — no named hospitals, clinic networks, JV partners, backers, cities, or deal dates.
 
 ## Design
 
-- **Identity:** the deck's own brand palette — electric royal blue (`#1742DE`), deep navy, and periwinkle — on a blue-tinted neutral.
-- **Type:** a serif display / sans body / mono-label system; big stat callouts for the data-heavy sections.
+- **Palette:** the deck's own brand colours — electric royal blue `#1742DE`, deep navy, and periwinkle — on a blue-tinted neutral.
+- **Type:** serif display / sans body / mono-label system, with large stat callouts and an animated DNA double-helix in the hero.
 - **Themes:** full light & dark support via `prefers-color-scheme`, plus an in-page theme toggle.
-- **Accessibility:** semantic landmarks, visible focus states, `prefers-reduced-motion` support, and a working mobile menu.
+- **Accessibility:** semantic landmarks, visible focus states, `prefers-reduced-motion` handling, and a working mobile menu.
 
 ## Editing
 
