@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2Health AI — Clinical intelligence, grounded in evidence</title>
+<meta name="description" content="2Health AI (2HEALTH AI LIMITED, Hong Kong) builds trustworthy, clinical-grade AI that helps care teams interpret health data, surface risk earlier, and decide with confidence.">
+<meta name="theme-color" content="#ECF1EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1513" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2Health AI — Clinical intelligence, grounded in evidence">
+<meta property="og:description" content="Trustworthy, clinical-grade AI for care teams. A Hong Kong company. Corporate site for 2health.cn; product platform at 2health.ai.">
+<meta property="og:url" content="https://2health.cn">
+</head>
+<body>
+<style>
+/* ============ Tokens ============ */
+:root{
+  --ground:#ECF1EF;
+  --surface:#FFFFFF;
+  --surface-2:#F3F7F5;
+  --ink:#0F1F1C;
+  --muted:#4E5F5A;
+  --accent:#0D6E5B;
+  --accent-2:#2E9B80;
+  --signal:#B57C22;
+  --line:#D6DEDB;
+  --on-accent:#FFFFFF;
+  --shadow-sm:0 1px 2px rgba(15,31,28,.05);
+  --shadow-md:0 2px 6px rgba(15,31,28,.06), 0 18px 40px -22px rgba(15,31,28,.20);
+
+  --font-display:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --font-sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+
+  --wrap:1200px;
+  --pad-x:clamp(1.25rem,4vw,2.5rem);
+  --sec-y:clamp(4rem,9vw,7rem);
+  --radius:8px;
+  --radius-sm:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0A1513;
+    --surface:#10201D;
+    --surface-2:#16302B;
+    --ink:#E7EEEB;
+    --muted:#93A6A1;
+    --accent:#33B99B;
+    --accent-2:#5AD6B6;
+    --signal:#E3AC4E;
+    --line:#203A34;
+    --on-accent:#05110E;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+    --shadow-md:0 2px 6px rgba(0,0,0,.35), 0 22px 46px -24px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="light"]{
+  --ground:#ECF1EF; --surface:#FFFFFF; --surface-2:#F3F7F5; --ink:#0F1F1C; --muted:#4E5F5A;
+  --accent:#0D6E5B; --accent-2:#2E9B80; --signal:#B57C22; --line:#D6DEDB; --on-accent:#FFFFFF;
+  --shadow-sm:0 1px 2px rgba(15,31,28,.05); --shadow-md:0 2px 6px rgba(15,31,28,.06), 0 18px 40px -22px rgba(15,31,28,.20);
+}
+:root[data-theme="dark"]{
+  --ground:#0A1513; --surface:#10201D; --surface-2:#16302B; --ink:#E7EEEB; --muted:#93A6A1;
+  --accent:#33B99B; --accent-2:#5AD6B6; --signal:#E3AC4E; --line:#203A34; --on-accent:#05110E;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-md:0 2px 6px rgba(0,0,0,.35), 0 22px 46px -24px rgba(0,0,0,.7);
+}
+
+/* ============ Base ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--ground);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.1;text-wrap:balance;letter-spacing:-.01em;margin:0}
+p{margin:0}
+a{color:inherit}
+img,svg,canvas{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad-x);width:100%}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 1.1rem;
+  display:inline-flex;align-items:center;gap:.6rem;
+}
+.eyebrow::before{content:"";width:1.6rem;height:1px;background:currentColor;opacity:.6}
+.section{padding-block:var(--sec-y);border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+section[id]{scroll-margin-top:5.5rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--muted);line-height:1.6;max-width:60ch}
+.zh{font-family:var(--font-sans);letter-spacing:.04em}
+
+/* ============ Buttons ============ */
+.btn{
+  --_bg:transparent;--_fg:var(--ink);--_bd:var(--line);
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-sans);font-size:.95rem;font-weight:550;
+  padding:.72rem 1.25rem;border-radius:var(--radius-sm);
+  background:var(--_bg);color:var(--_fg);border:1px solid var(--_bd);
+  cursor:pointer;text-decoration:none;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+  white-space:nowrap;
+}
+.btn svg{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{--_bg:var(--accent);--_fg:var(--on-accent);--_bd:var(--accent);box-shadow:var(--shadow-sm)}
+.btn-primary:hover{--_bg:var(--accent-2);--_bd:var(--accent-2);box-shadow:var(--shadow-md)}
+.btn-ghost{--_bg:transparent;--_fg:var(--ink)}
+.btn-ghost:hover{--_bd:var(--accent);--_fg:var(--accent)}
+.btn-sm{padding:.5rem .9rem;font-size:.85rem}
+@media (prefers-reduced-motion: reduce){ .btn:hover{transform:none} }
+
+/* ============ Header / Nav ============ */
+.site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--ground) 82%, transparent);
+  backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .3s ease, background .3s ease}
+.site-header.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb, var(--ground) 92%, transparent)}
+.nav-inner{display:flex;align-items:center;gap:1.25rem;height:4.25rem}
+.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-weight:600;letter-spacing:-.01em;font-size:1.06rem}
+.brand-mark{color:var(--accent);flex:none}
+.brand b{font-weight:600}
+.brand .brand-ai{color:var(--accent);font-weight:600}
+.nav-links{display:flex;gap:.35rem;margin-inline-auto}
+.nav-links a{position:relative;text-decoration:none;color:var(--muted);font-size:.94rem;font-weight:500;padding:.5rem .7rem;border-radius:6px;transition:color .16s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.6rem;margin-left:auto}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border:1px solid var(--line);background:var(--surface);border-radius:8px;color:var(--ink);cursor:pointer;transition:border-color .18s ease,color .18s ease}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+.icon-btn svg{width:1.15rem;height:1.15rem;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .moon{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .moon{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .sun{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .moon{display:block}
+}
+.menu-toggle{display:none}
+
+/* ============ Hero ============ */
+.hero{padding-block:clamp(3rem,7vw,5.5rem) var(--sec-y)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4rem);margin-bottom:1.4rem}
+.hero .lead{margin-bottom:.9rem}
+.hero .zh{color:var(--muted);font-size:1.02rem;margin-bottom:1.9rem;opacity:.9}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.1rem}
+.trust{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;font-family:var(--font-mono);font-size:.73rem;letter-spacing:.02em;color:var(--muted)}
+.trust span{display:inline-flex;align-items:center;gap:.5rem}
+.trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+
+.hero-visual{position:relative;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+  overflow:hidden;min-height:400px;box-shadow:var(--shadow-md);isolation:isolate}
+.hero-visual canvas{position:absolute;inset:0;width:100%;height:100%}
+.signal-tag{position:absolute;top:1rem;left:1rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;
+  color:var(--muted);display:inline-flex;align-items:center;gap:.5rem;background:color-mix(in srgb,var(--surface) 70%,transparent);
+  padding:.35rem .6rem;border-radius:100px;border:1px solid var(--line);backdrop-filter:blur(4px)}
+.signal-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 color-mix(in srgb,var(--signal) 60%,transparent);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--signal) 55%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.signal-caption{position:absolute;bottom:1rem;left:1rem;right:1rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.03em;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .signal-tag .dot{animation:none} }
+
+/* ============ About ============ */
+.about-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.about-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+.about-head .lead{margin-top:0}
+.principles{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.p-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.4rem;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.p-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.p-ico{width:2.6rem;height:2.6rem;border-radius:9px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent);margin-bottom:1.1rem}
+.p-ico svg{width:1.35rem;height:1.35rem;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.p-card h3{font-size:1.12rem;margin-bottom:.5rem;font-family:var(--font-sans);font-weight:600;letter-spacing:0}
+.p-card p{font-size:.92rem;color:var(--muted);line-height:1.55}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.5rem;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.fact{background:var(--ground);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.3rem}
+.fact-k{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fact-v{font-family:var(--font-display);font-size:1.22rem;color:var(--ink)}
+
+/* ============ Platform / Services ============ */
+.platform-head{max-width:60ch}
+.platform-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:1rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.7rem 1.6rem;
+  display:flex;flex-direction:column;gap:.7rem;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.card-ico{color:var(--accent);width:1.9rem;height:1.9rem}
+.card-ico svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.16rem;font-family:var(--font-sans);font-weight:600;letter-spacing:0}
+.card p{font-size:.93rem;color:var(--muted);line-height:1.55}
+.platform-cta{margin-top:2.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.link-arrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);font-weight:600;text-decoration:none;font-size:.98rem}
+.link-arrow svg{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
+.link-arrow:hover svg{transform:translateX(4px)}
+
+/* ============ People ============ */
+.people-head{max-width:62ch;margin-bottom:clamp(2.2rem,4vw,3rem)}
+.people-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:1rem}
+.subhead{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 1.2rem}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.member{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.4rem}
+.avatar{width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;font-family:var(--font-mono);font-size:.9rem;font-weight:600;
+  letter-spacing:.04em;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--surface));margin-bottom:1rem}
+.member h4{margin:0 0 .2rem;font-size:1.02rem;font-weight:600}
+.member .role{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}
+.member p{font-size:.88rem;color:var(--muted);line-height:1.5;margin:0}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.quote{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:1rem}
+.quote p{font-family:var(--font-display);font-size:1.04rem;line-height:1.5;color:var(--ink)}
+.quote .mark{color:var(--accent);font-family:var(--font-display);font-size:2.2rem;line-height:.5;height:.7rem}
+.quote cite{font-style:normal;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted);margin-top:auto}
+
+/* ============ Contact ============ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.contact-head h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:1.1rem}
+.contact-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.6rem,3vw,2.2rem);box-shadow:var(--shadow-sm)}
+.contact-list{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:1.1rem}
+.contact-list li{display:grid;gap:.15rem}
+.contact-list .k{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-list .v{font-size:1.02rem;color:var(--ink);text-decoration:none}
+.contact-list a.v:hover{color:var(--accent)}
+.contact-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* ============ Footer ============ */
+.site-footer{border-top:1px solid var(--line);padding-block:clamp(3rem,6vw,4.5rem) 2rem;background:var(--surface-2)}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem}
+.footer-brand .brand{margin-bottom:1rem}
+.footer-brand p{color:var(--muted);font-size:.92rem;max-width:34ch}
+.footer-brand .zh{color:var(--muted);font-size:.9rem;margin-top:.5rem;opacity:.85}
+.fcol h5{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem;font-weight:500}
+.fcol ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.fcol a{color:var(--ink);text-decoration:none;font-size:.92rem;opacity:.85;transition:opacity .16s ease,color .16s ease}
+.fcol a:hover{opacity:1;color:var(--accent)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;
+  margin-top:clamp(2.5rem,5vw,3.5rem);padding-top:1.6rem;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.02em;color:var(--muted)}
+.footer-bottom a{color:var(--muted);text-decoration:none}
+.footer-bottom a:hover{color:var(--accent)}
+
+/* ============ Reveal ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none} }
+
+/* ============ Responsive ============ */
+@media (max-width:960px){
+  .principles,.facts,.team{grid-template-columns:repeat(2,1fr)}
+  .cards,.quotes{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1 / -1}
+}
+@media (max-width:820px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+    background:var(--ground);border-bottom:1px solid var(--line);padding:.5rem var(--pad-x) 1rem;display:none;margin:0}
+  .site-header.menu-open .nav-links{display:flex}
+  .nav-links a{padding:.8rem .2rem;border-radius:0;border-bottom:1px solid var(--line)}
+  .menu-toggle{display:inline-flex}
+  .nav-inner .launch .lt{display:none}
+  .hero-grid,.about-head,.contact-grid{grid-template-columns:1fr}
+  .hero-visual{min-height:320px;order:-1}
+  .about-head .lead{max-width:none}
+}
+@media (max-width:560px){
+  .principles,.facts,.team,.cards,.quotes{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<!-- ============ Header ============ -->
+<header class="site-header" id="top">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="2Health AI — home">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="1.4" y="1.4" width="27.2" height="27.2" rx="8" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M5 16h3.4l2.2-6.4 3.4 12.2 2.5-8.1 1.7 2.9H25" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>2Health</b> <span class="brand-ai">AI</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#platform">Platform</a>
+      <a href="#people">People</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle colour theme">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.4 6.4 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm launch" href="https://2health.ai" target="_blank" rel="noopener">
+        <span class="lt">Launch platform</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Healthcare AI · 香港 Hong Kong</p>
+        <h1>Clinical intelligence, grounded in evidence.</h1>
+        <p class="lead">2Health AI develops trustworthy, clinical-grade AI that helps care teams interpret health data, surface risk earlier, and act with confidence — from the first signal to the final decision.</p>
+        <p class="zh">以人工智能賦能醫療健康 — 讓每一個臨床決策，都有據可循。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Contact us
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://2health.ai" target="_blank" rel="noopener">Launch the platform
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="trust">
+          <span>2HEALTH AI LIMITED</span>
+          <span>Incorporated in Hong Kong</span>
+          <span>Platform · 2health.ai</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <canvas id="signal" aria-hidden="true"></canvas>
+        <div class="signal-tag"><span class="dot"></span>LIVE SIGNAL</div>
+        <p class="signal-caption">Reading vital signals — turning raw data into clinical insight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ About ============ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-head reveal">
+        <div>
+          <p class="eyebrow">Who we are</p>
+          <h2>The intelligence layer between health data and human decisions.</h2>
+        </div>
+        <div>
+          <p class="lead">Modern medicine generates more data than any team can read. 2Health AI turns that data into clarity — pairing clinical expertise with state-of-the-art AI so clinicians can see sooner, decide faster, and treat with confidence. We are a Hong Kong company, building for care teams and patients across the region and beyond.</p>
+        </div>
+      </div>
+
+      <div class="principles">
+        <div class="p-card reveal">
+          <div class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3v6l-5.2 8.1A2 2 0 0 0 6.5 20h11a2 2 0 0 0 1.7-3L14 9V3"/><path d="M9 3h6M8 14h8"/></svg></div>
+          <h3>Evidence-led</h3>
+          <p>Every model is measured against clinical benchmarks, and every output can be traced back to its source.</p>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Privacy by design</h3>
+          <p>Patient data is encrypted, access-controlled, and handled to healthcare-grade standards at every step.</p>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v4a4 4 0 0 0 8 0V3"/><path d="M4 3h3M13 3h3"/><path d="M10 15a5 5 0 0 0 5 5 4 4 0 0 0 4-4v-2"/><circle cx="19" cy="12" r="2"/></svg></div>
+          <h3>Built with clinicians</h3>
+          <p>Designed alongside doctors and care teams to fit real workflows — not to replace the people in them.</p>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></div>
+          <h3>Bilingual by default</h3>
+          <p>Built for Hong Kong and beyond — working naturally across English and Chinese, for staff and patients alike.</p>
+        </div>
+      </div>
+
+      <div class="facts reveal">
+        <div class="fact"><span class="fact-k">Based in</span><span class="fact-v">Hong Kong SAR</span></div>
+        <div class="fact"><span class="fact-k">Languages</span><span class="fact-v">English &amp; 中文</span></div>
+        <div class="fact"><span class="fact-k">Platform</span><span class="fact-v">2health.ai</span></div>
+        <div class="fact"><span class="fact-k">Infrastructure</span><span class="fact-v">Cloud-native</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Platform ============ -->
+  <section class="section" id="platform">
+    <div class="wrap">
+      <div class="platform-head reveal">
+        <p class="eyebrow">What we build</p>
+        <h2>One platform, from signal to decision.</h2>
+        <p class="lead">The 2Health AI platform brings clinical intelligence into every step of care — available to explore at <a href="https://2health.ai" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:600">2health.ai</a>.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-5 3 9 2-4h7"/></svg></div>
+          <h3>Clinical decision support</h3>
+          <p>Context-aware guidance at the point of care, grounded in current medical evidence and always explainable.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+          <h3>Health record intelligence</h3>
+          <p>Structure and summarise scattered records into one clear clinical picture in seconds, not minutes.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15l4-4 3 3 5-6"/><path d="M18 8h3v3"/></svg></div>
+          <h3>Early risk detection</h3>
+          <p>Surface signs of deterioration and emerging risk before they become emergencies.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v3a4 4 0 0 0 4 4h6"/></svg></div>
+          <h3>Patient triage &amp; navigation</h3>
+          <p>Guide patients to the right level of care, faster and with far less friction for staff.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a7 7 0 0 1-7 7H8l-4 3v-4.5A7 7 0 1 1 20 12z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Trusted medical answers</h3>
+          <p>Reliable, cited responses to clinical questions — for care teams and patients, in plain language.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true" stroke-width="2.1"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></div>
+          <h3>Analytics &amp; operations</h3>
+          <p>Turn cohort and operational data into decisions leaders can act on with confidence.</p>
+        </div>
+      </div>
+
+      <div class="platform-cta reveal">
+        <a class="link-arrow" href="https://2health.ai" target="_blank" rel="noopener">Explore the full platform
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ People ============ -->
+  <section class="section" id="people">
+    <div class="wrap">
+      <div class="people-head reveal">
+        <p class="eyebrow">People</p>
+        <h2>Clinicians and engineers, building together.</h2>
+        <p class="lead">2Health AI brings together medical practitioners, research scientists, and engineers who share one belief: AI should earn a clinician's trust before it earns their time.</p>
+      </div>
+
+      <p class="subhead reveal">How we're built</p>
+      <div class="team">
+        <div class="member reveal">
+          <div class="avatar">CL</div>
+          <h4>Clinical leadership</h4>
+          <p class="role">Medicine</p>
+          <p>Practising physicians who guide every product decision and safety review.</p>
+        </div>
+        <div class="member reveal">
+          <div class="avatar">AI</div>
+          <h4>AI research</h4>
+          <p class="role">Science</p>
+          <p>Scientists advancing safe, reliable and well-evaluated medical AI.</p>
+        </div>
+        <div class="member reveal">
+          <div class="avatar">EN</div>
+          <h4>Engineering</h4>
+          <p class="role">Platform</p>
+          <p>Builders shipping dependable, secure healthcare software at scale.</p>
+        </div>
+        <div class="member reveal">
+          <div class="avatar">PA</div>
+          <h4>Partnerships</h4>
+          <p class="role">Care networks</p>
+          <p>Working hand in hand with hospitals, clinics and health systems.</p>
+        </div>
+      </div>
+
+      <p class="subhead reveal" style="margin-top:clamp(2.5rem,5vw,3.5rem)">In their words</p>
+      <div class="quotes">
+        <figure class="quote reveal">
+          <div class="mark" aria-hidden="true">&ldquo;</div>
+          <p>It gives our clinicians a second read they actually trust — the reasoning is always there to check.</p>
+          <cite>Medical Director · regional hospital network</cite>
+        </figure>
+        <figure class="quote reveal">
+          <div class="mark" aria-hidden="true">&ldquo;</div>
+          <p>It cut the time our team spends piecing together patient history from minutes to seconds.</p>
+          <cite>Head of Digital Health · public health system</cite>
+        </figure>
+        <figure class="quote reveal">
+          <div class="mark" aria-hidden="true">&ldquo;</div>
+          <p>Finally, a tool built around how we work — in the languages our patients actually speak.</p>
+          <cite>Family physician · primary care clinic</cite>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-head reveal">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's build trustworthy care, together.</h2>
+        <p class="lead">Whether you're a hospital, clinic or health system — or simply want to see the platform in action — we'd love to hear from you.</p>
+      </div>
+      <div class="contact-panel reveal">
+        <ul class="contact-list">
+          <li><span class="k">General enquiries</span><a class="v" href="mailto:hello@2health.ai">hello@2health.ai</a></li>
+          <li><span class="k">Partnerships</span><a class="v" href="mailto:partners@2health.ai">partners@2health.ai</a></li>
+          <li><span class="k">Office</span><span class="v">Hong Kong SAR</span></li>
+          <li><span class="k">Web</span><span class="v">2health.cn &nbsp;·&nbsp; 2health.ai</span></li>
+        </ul>
+        <div class="contact-cta">
+          <a class="btn btn-primary" href="mailto:hello@2health.ai">Email us
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://2health.ai" target="_blank" rel="noopener">Launch the platform
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="2Health AI — home">
+          <svg class="brand-mark" width="28" height="28" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <rect x="1.4" y="1.4" width="27.2" height="27.2" rx="8" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M5 16h3.4l2.2-6.4 3.4 12.2 2.5-8.1 1.7 2.9H25" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span><b>2Health</b> <span class="brand-ai">AI</span></span>
+        </a>
+        <p>Trustworthy, clinical-grade AI for care teams — from the first signal to the final decision.</p>
+        <p class="zh">以人工智能賦能醫療健康</p>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#platform">Platform</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="https://2health.ai" target="_blank" rel="noopener">Launch 2health.ai</a></li>
+          <li><a href="#platform">Decision support</a></li>
+          <li><a href="#platform">Record intelligence</a></li>
+          <li><a href="#platform">Risk detection</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@2health.ai">hello@2health.ai</a></li>
+          <li><a href="mailto:partners@2health.ai">partners@2health.ai</a></li>
+          <li><a href="#contact">Hong Kong SAR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> 2HEALTH AI LIMITED · Incorporated in Hong Kong</span>
+      <span><a href="https://2health.cn" target="_blank" rel="noopener">2health.cn</a> · <a href="https://2health.ai" target="_blank" rel="noopener">2health.ai</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+
+  /* ---- Theme toggle ---- */
+  var prefersDark=window.matchMedia("(prefers-color-scheme: dark)");
+  function currentTheme(){
+    var t=root.getAttribute("data-theme");
+    if(t==="dark"||t==="light") return t;
+    return prefersDark.matches?"dark":"light";
+  }
+  var themeBtn=document.getElementById("themeToggle");
+  if(themeBtn){
+    themeBtn.addEventListener("click",function(){
+      var next=currentTheme()==="dark"?"light":"dark";
+      root.setAttribute("data-theme",next);
+      if(window.__signalRefresh) window.__signalRefresh();
+    });
+  }
+  prefersDark.addEventListener&&prefersDark.addEventListener("change",function(){
+    if(window.__signalRefresh) window.__signalRefresh();
+  });
+
+  /* ---- Mobile menu ---- */
+  var header=document.querySelector(".site-header");
+  var menuBtn=document.getElementById("menuToggle");
+  if(menuBtn&&header){
+    menuBtn.addEventListener("click",function(){
+      var open=header.classList.toggle("menu-open");
+      menuBtn.setAttribute("aria-expanded",open?"true":"false");
+    });
+    header.querySelectorAll(".nav-links a").forEach(function(a){
+      a.addEventListener("click",function(){
+        header.classList.remove("menu-open");
+        menuBtn.setAttribute("aria-expanded","false");
+      });
+    });
+  }
+
+  /* ---- Sticky header shadow ---- */
+  function onScroll(){
+    if(!header) return;
+    header.classList.toggle("scrolled",window.scrollY>8);
+  }
+  onScroll();
+  window.addEventListener("scroll",onScroll,{passive:true});
+
+  /* ---- Year ---- */
+  try{ var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear(); }catch(e){}
+
+  /* ---- Reveal on scroll ---- */
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealEls=[].slice.call(document.querySelectorAll(".reveal"));
+  if(reduce||!("IntersectionObserver" in window)){
+    revealEls.forEach(function(el){el.classList.add("in");});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    },{threshold:.14,rootMargin:"0px 0px -8% 0px"});
+    revealEls.forEach(function(el){io.observe(el);});
+  }
+
+  /* ---- Hero biosignal canvas ---- */
+  var canvas=document.getElementById("signal");
+  if(canvas&&canvas.getContext){
+    var ctx=canvas.getContext("2d");
+    var W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
+    var colors={};
+    function readColors(){
+      var cs=getComputedStyle(root);
+      function g(n,f){var v=cs.getPropertyValue(n);return v?v.trim():f;}
+      colors={
+        accent:g("--accent","#0D6E5B"),
+        accent2:g("--accent-2","#2E9B80"),
+        signal:g("--signal","#B57C22"),
+        line:g("--line","#D6DEDB")
+      };
+    }
+    window.__signalRefresh=readColors;
+    function resize(){
+      var r=canvas.getBoundingClientRect();
+      W=r.width;H=r.height;
+      canvas.width=Math.max(1,Math.round(W*dpr));
+      canvas.height=Math.max(1,Math.round(H*dpr));
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    function waveY(x,t){
+      var mid=H*0.5;
+      var a=H*0.13;
+      return mid
+        + Math.sin(x*0.011 + t*1.05)*a
+        + Math.sin(x*0.027 - t*1.7)*a*0.40
+        + Math.sin(x*0.005 + t*0.55)*a*0.62;
+    }
+    function drawGrid(t){
+      ctx.save();
+      ctx.strokeStyle=colors.line;ctx.globalAlpha=0.55;ctx.lineWidth=1;
+      var gap=30;
+      for(var y=gap;y<H;y+=gap){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+      var off=(t*26)%gap;
+      ctx.globalAlpha=0.30;
+      for(var x=W-off;x>0;x-=gap){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+      ctx.restore();
+    }
+    function drawWave(t){
+      var x,y,step=2,headX=W-4;
+      /* fill under trace */
+      ctx.beginPath();
+      ctx.moveTo(0,H);
+      for(x=0;x<=W;x+=step){ctx.lineTo(x,waveY(x,t));}
+      ctx.lineTo(W,H);ctx.closePath();
+      var grad=ctx.createLinearGradient(0,0,0,H);
+      grad.addColorStop(0,mix(colors.accent,0.18));
+      grad.addColorStop(1,mix(colors.accent,0.0));
+      ctx.fillStyle=grad;ctx.fill();
+      /* faint secondary trace */
+      ctx.save();
+      ctx.globalAlpha=0.35;ctx.strokeStyle=colors.accent2;ctx.lineWidth=1.4;
+      ctx.beginPath();
+      for(x=0;x<=W;x+=step){y=waveY(x,t+1.6)*0.9+H*0.05;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+      ctx.stroke();
+      ctx.restore();
+      /* primary trace with glow */
+      ctx.save();
+      ctx.strokeStyle=colors.accent;ctx.lineWidth=2.1;ctx.lineJoin="round";ctx.lineCap="round";
+      ctx.shadowColor=colors.accent2;ctx.shadowBlur=10;
+      ctx.beginPath();
+      for(x=0;x<=W;x+=step){y=waveY(x,t);if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+      ctx.stroke();
+      ctx.restore();
+      /* reading head */
+      var hy=waveY(headX,t);
+      ctx.save();
+      ctx.globalAlpha=0.5;ctx.strokeStyle=colors.line;ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(headX,0);ctx.lineTo(headX,H);ctx.stroke();
+      ctx.restore();
+      ctx.save();
+      ctx.shadowColor=colors.signal;ctx.shadowBlur=12;
+      ctx.fillStyle=colors.signal;
+      ctx.beginPath();ctx.arc(headX,hy,3.2,0,Math.PI*2);ctx.fill();
+      ctx.restore();
+    }
+    function mix(hex,alpha){
+      var h=hex.replace("#","");
+      if(h.length===3){h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];}
+      var r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);
+      return "rgba("+r+","+g+","+b+","+alpha+")";
+    }
+    function frame(t){
+      ctx.clearRect(0,0,W,H);
+      drawGrid(t);
+      drawWave(t);
+    }
+    readColors();
+    resize();
+    if("ResizeObserver" in window){
+      var ro=new ResizeObserver(function(){resize();if(reduce)frame(2.0);});
+      ro.observe(canvas);
+    }else{
+      window.addEventListener("resize",function(){resize();if(reduce)frame(2.0);});
+    }
+    if(reduce){
+      frame(2.0);
+    }else{
+      var start=null;
+      function loop(ts){
+        if(start===null)start=ts;
+        frame((ts-start)/1000);
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    }
+  }
+})();
+</script>
+</body>
+</html>
