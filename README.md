@@ -1,6 +1,6 @@
 # 2healthcn
 
-Official corporate website for **2Health AI** (`2HEALTH AI LIMITED`, Hong Kong), served at **[2health.cn](https://2health.cn)** — the world's first **Human Digital Twin Profiling System** and the core AI engine for Digital Public Infrastructure of Health.
+Official corporate website for **2Health AI** (`2HEALTH AI LIMITED`, Hong Kong), served at **[2health.cn](https://2health.cn)** — the world's first **Human Digital Twin operating system** and the core AI engine for Digital Public Infrastructure of Health.
 
 Distinct from the product platform at **[2health.ai](https://2health.ai)**, which it links out to.
 
