@@ -280,7 +280,7 @@ img,svg,canvas{display:block;max-width:100%}
   display:flex;align-items:center;justify-content:flex-end;padding-right:.6rem;color:#fff;font-family:var(--font-mono);font-size:.78rem;font-weight:600}
 .mbars .cap{margin-top:.6rem;font-size:.84rem;color:var(--muted)}
 
-/* ============ Business model ============ */
+/* ============ <span class="t-en">Business model</span><span class="t-zh">商业模式</span> ============ */
 .model{grid-template-columns:repeat(4,1fr)}
 .mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
 .mcard .tag{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;color:var(--accent);
@@ -377,6 +377,10 @@ img,svg,canvas{display:block;max-width:100%}
 .vs p{font-size:.9rem;color:var(--ink);line-height:1.45}
 .vs p b{color:var(--accent);font-weight:650}
 .ptime{margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:.74rem;color:var(--muted)}
+.card-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.7rem;color:var(--accent);font-weight:650;font-size:.9rem;text-decoration:none}
+.card-link svg{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
+.card-link:hover{text-decoration:underline}
+.card-link:hover svg{transform:translate(2px,-2px)}
 @media (max-width:820px){.vm,.versus,.whynow{grid-template-columns:1fr}.vs .vk{width:7.5rem}}
 @media (max-width:560px){.cols-2{grid-template-columns:1fr}}
 
@@ -409,6 +413,10 @@ img,svg,canvas{display:block;max-width:100%}
   .rec-list li .meta{order:-1}
 }
 section[id]{scroll-margin-top:5.2rem}
+.t-zh{display:none}
+:root.lang-zh .t-en{display:none}
+:root.lang-zh .t-zh{display:inline}
+.lang-toggle{font-family:var(--font-sans);font-size:.82rem;font-weight:650}
 </style>
 
 <!-- ============ Header ============ -->
@@ -422,20 +430,21 @@ section[id]{scroll-margin-top:5.2rem}
       </span>
     </div>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="#vision">Vision</a>
-      <a href="#platform">Platform</a>
-      <a href="#technology">Technology</a>
-      <a href="#pipeline">Pipeline</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+      <span class="t-en"><a href="#vision">Vision</a></span><span class="t-zh"><a href="#vision">愿景</a></span>
+      <span class="t-en"><a href="#platform">Platform</a></span><span class="t-zh"><a href="#platform">平台</a></span>
+      <span class="t-en"><a href="#technology">Technology</a></span><span class="t-zh"><a href="#technology">技术</a></span>
+      <span class="t-en"><a href="#pipeline">Pipeline</a></span><span class="t-zh"><a href="#pipeline">管线</a></span>
+      <span class="t-en"><a href="#team">Team</a></span><span class="t-zh"><a href="#team">团队</a></span>
+      <span class="t-en"><a href="#contact">Contact</a></span><span class="t-zh"><a href="#contact">联系</a></span>
     </nav>
     <div class="nav-actions">
+      <button class="icon-btn lang-toggle" id="langToggle" type="button" aria-label="Switch language / 切换语言" aria-pressed="false"><span class="t-en">中</span><span class="t-zh">EN</span></button>
       <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle colour theme">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.4 6.4 0 0 0 10.5 10.5z"/></svg>
       </button>
       <a class="btn btn-primary btn-sm launch" href="https://2health.ai" target="_blank" rel="noopener">
-        <span class="lt">Launch platform</span>
+        <span class="t-en"><span class="lt">Launch platform</span></span><span class="t-zh"><span class="lt">进入平台</span></span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
       <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -451,38 +460,38 @@ section[id]{scroll-margin-top:5.2rem}
     <div class="wrap hero-grid">
       <div>
         <div class="badges">
-          <span class="badge">HKSTP Partner Company · Hong Kong</span>
-          <span class="badge"><span class="live"></span>Live at 2health.ai</span>
+          <span class="badge"><span class="t-en">HKSTP Partner Company · Hong Kong</span><span class="t-zh">香港科技园孵化企业 · 香港</span></span>
+          <span class="badge"><span class="live"></span><span class="t-en">Live at 2health.ai</span><span class="t-zh">已上线 · 2health.ai</span></span>
         </div>
-        <h1>The world's first <em>Human Digital Twin</em> operating system.</h1>
-        <p class="hero-slogan">The Core AI Engine for Digital Public Infrastructure of Health</p>
-        <p class="lead">One living health twin per person — uniting genomic, clinical and wearable data to predict disease, prevent illness, and personalize health for life.</p>
-        <p class="zh">以人工智能賦能醫療健康 — 為每個人建立終身的數字健康孿生。</p>
+        <h1><span class="t-en">The world's first <em>Human Digital Twin</em> operating system.</span><span class="t-zh">全球首个<em>人类数字孪生</em>操作系统。</span></h1>
+        <p class="hero-slogan"><span class="t-en">The Core AI Engine for Digital Public Infrastructure of Health</span><span class="t-zh">健康数字公共基础设施的核心 AI 引擎</span></p>
+        <p class="lead"><span class="t-en">One living health twin per person — uniting genomic, clinical and wearable data to predict disease, prevent illness, and personalize health for life.</span><span class="t-zh">为每个人打造一个持续更新的健康孪生 —— 整合基因组、临床与可穿戴数据，预见疾病、主动预防，并为一生提供个性化健康管理。</span></p>
+        <p class="zh">以人工智能赋能医疗健康 — 为每个人建立终身的数字健康孪生。</p>
         <div class="hero-cta">
-          <a class="btn btn-white" href="https://2health.ai" target="_blank" rel="noopener">Launch the platform
+          <a class="btn btn-white" href="https://2health.ai" target="_blank" rel="noopener"><span class="t-en">Launch the platform</span><span class="t-zh">进入平台</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
-          <a class="btn btn-light" href="#contact">Get in touch
+          <a class="btn btn-light" href="#contact"><span class="t-en">Get in touch</span><span class="t-zh">联系我们</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
         <div class="hero-meta">
           <span>2HEALTH AI LIMITED</span>
-          <span>Incorporated in Hong Kong</span>
-          <span>Founded by Dr. Lane Chen</span>
+          <span><span class="t-en">Incorporated in Hong Kong</span><span class="t-zh">于香港注册成立</span></span>
+          <span><span class="t-en">Founded by Dr. Lane Chen</span><span class="t-zh">由陈国蓝博士创立</span></span>
         </div>
       </div>
       <div class="hero-visual">
         <canvas id="helix" aria-hidden="true"></canvas>
-        <p class="hv-tag"><b>Human Digital Twin</b> — genomic · clinical · wearable, unified.</p>
+        <p class="hv-tag"><span class="t-en"><b>Human Digital Twin</b> — genomic · clinical · wearable, unified.</span><span class="t-zh"><b>人类数字孪生</b> — 基因组 · 临床 · 可穿戴数据，统一整合。</span></p>
       </div>
     </div>
     <div class="hero-strip">
       <div class="wrap hero-strip-grid">
-        <div class="hs"><span class="n">1,038+</span><span class="l">Phenotypes / report</span></div>
-        <div class="hs"><span class="n">2M+</span><span class="l">Genomic variants integrated</span></div>
-        <div class="hs"><span class="n">0.9 AUC</span><span class="l">On key diseases</span></div>
-        <div class="hs"><span class="n">30+</span><span class="l">Personal-twin modules</span></div>
+        <div class="hs"><span class="n">1,038+</span><span class="l"><span class="t-en">Phenotypes / report</span><span class="t-zh">每份报告表型数</span></span></div>
+        <div class="hs"><span class="n">2M+</span><span class="l"><span class="t-en">Genomic variants integrated</span><span class="t-zh">整合基因组变异</span></span></div>
+        <div class="hs"><span class="n">0.9 AUC</span><span class="l"><span class="t-en">On key diseases</span><span class="t-zh">关键疾病</span></span></div>
+        <div class="hs"><span class="n">30+</span><span class="l"><span class="t-en">Personal-twin modules</span><span class="t-zh">个人孪生模块</span></span></div>
       </div>
     </div>
   </section>
@@ -490,16 +499,16 @@ section[id]{scroll-margin-top:5.2rem}
   <!-- ============ Vision & Mission ============ -->
   <section class="section" id="vision">
     <div class="wrap">
-      <p class="eyebrow reveal">Vision &amp; mission</p>
+      <p class="eyebrow reveal"><span class="t-en">Vision &amp; mission</span><span class="t-zh">愿景与使命</span></p>
       <p class="vm-slogan reveal"><span class="zh">预见疾病 · 守护健康</span><br><span class="en">Predict disease · Protect health.</span></p>
       <div class="grid vm">
         <div class="vm-block reveal">
-          <div class="k">Vision</div>
-          <p>Everyone should be able to <b>foresee disease and safeguard their health</b>. We turn expensive, scattered and expert-gated health data into understandable, actionable, lifelong decision support — for every person.</p>
+          <span class="t-en"><div class="k">Vision</div></span><span class="t-zh"><div class="k">愿景</div></span>
+          <p><span class="t-en">Everyone should be able to <b>foresee disease and safeguard their health</b>. We turn expensive, scattered and expert-gated health data into understandable, actionable, lifelong decision support — for every person.</span><span class="t-zh">让每一个人都能<b>预见疾病、守护健康</b>。我们把昂贵、零散、专业门槛极高的健康数据，转化为人人可理解、可执行、可陪伴一生的决策支持。</span></p>
         </div>
         <div class="vm-block reveal">
-          <div class="k">Mission</div>
-          <p>Build a <b>full-life-cycle Human Digital Twin</b> for every person, and move healthcare from after-the-fact treatment toward prediction and proactive prevention.</p>
+          <span class="t-en"><div class="k">Mission</div></span><span class="t-zh"><div class="k">使命</div></span>
+          <p><span class="t-en">Build a <b>full-life-cycle Human Digital Twin</b> for every person, and move healthcare from after-the-fact treatment toward prediction and proactive prevention.</span><span class="t-zh">为每个人构建<b>覆盖全生命周期的人类数字孪生</b>，把医疗健康从“事后治疗”推向事前预测与主动预防。</span></p>
         </div>
       </div>
     </div>
@@ -509,35 +518,35 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="problem">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">The problem</p>
-        <h2>Health data is expensive, fragmented — and wasted.</h2>
-        <p class="lead">People and health systems generate more data than anyone can use. Today it sits in silos, read once and forgotten.</p>
+        <p class="eyebrow"><span class="t-en">The problem</span><span class="t-zh">问题</span></p>
+        <h2><span class="t-en">Health data is expensive, fragmented — and wasted.</span><span class="t-zh">健康数据昂贵、割裂 —— 且被浪费。</span></h2>
+        <p class="lead"><span class="t-en">People and health systems generate more data than anyone can use. Today it sits in silos, read once and forgotten.</span><span class="t-zh">人们与医疗系统产生的数据，远超任何人所能利用。如今它们困在各自的孤岛里，看一次便被遗忘。</span></p>
       </div>
       <div class="grid cols-3">
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h4"/></svg></div>
-          <h3>Costly omics, shelved</h3>
-          <p>DNA and multi-omics reports cost $100–1,000 a sample, then sit in PDFs — read once and never used again.</p>
+          <h3><span class="t-en">Costly omics, shelved</span><span class="t-zh">昂贵的组学，束之高阁</span></h3>
+          <p><span class="t-en">DNA and multi-omics reports cost $100–1,000 a sample, then sit in PDFs — read once and never used again.</span><span class="t-zh">DNA 与多组学报告每份成本约 $100–1,000，做完却沉睡在 PDF 里 —— 看一次，再不复用。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="6" rx="1.5"/><rect x="14" y="14" width="7" height="6" rx="1.5"/></svg></div>
-          <h3>Siloed &amp; fragmented</h3>
-          <p>Check-ups, test reports, medical records and wearables live in separate systems. No one — not even a family doctor — sees a lifelong view.</p>
+          <h3><span class="t-en">Siloed &amp; fragmented</span><span class="t-zh">孤岛与割裂</span></h3>
+          <p><span class="t-en">Check-ups, test reports, medical records and wearables live in separate systems. No one — not even a family doctor — sees a lifelong view.</span><span class="t-zh">体检、化验报告、病历与可穿戴设备各在不同系统。没有人 —— 甚至家庭医生 —— 能看到一个人贯穿一生的完整视图。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.2c0 1.7-2.1 2-2.1 3.3M12 17h.01"/></svg></div>
-          <h3>Generic &amp; low-trust</h3>
-          <p>Direct-to-consumer reports cover a narrow scope with commonsense advice. Those who care about health pay more, yet have no access to reliable, broad insight.</p>
+          <h3><span class="t-en">Generic &amp; low-trust</span><span class="t-zh">笼统且低信任</span></h3>
+          <p><span class="t-en">Direct-to-consumer reports cover a narrow scope with commonsense advice. Those who care about health pay more, yet have no access to reliable, broad insight.</span><span class="t-zh">面向消费者的报告覆盖面窄、建议笼统。真正关注健康的人付出更多，却得不到可靠、广谱的洞察。</span></p>
         </div>
       </div>
       <div class="stat-banner reveal">
         <span class="big">90%</span>
-        <p>of people believe in the value of big-data-driven health prediction — yet no product turns it into lifelong, actionable guidance.</p>
+        <p><span class="t-en">of people believe in the value of big-data-driven health prediction — yet no product turns it into lifelong, actionable guidance.</span><span class="t-zh"> 的人相信大数据驱动的健康预测 —— 却没有产品把它变成可陪伴一生、可执行的指引。</span></p>
       </div>
       <div class="grid whynow">
-        <div class="reveal"><div class="k">Market</div><h4>Precision health is scaling fast</h4><p>Digital health is on track to grow ~3.5× by 2030 — and emerging markets need affordable infrastructure most.</p></div>
-        <div class="reveal"><div class="k">Technology</div><h4>The models are finally ready</h4><p>Generative AI, omics foundation models and polygenic scoring make explainable, broad-spectrum lifelong prediction possible for the first time.</p></div>
-        <div class="reveal"><div class="k">Customers</div><h4>Everyone needs the layer</h4><p>Individuals, doctors and hospitals — plus labs, insurers and DTC providers — all need one tool to unify data and fill the infrastructure gap.</p></div>
+        <div class="reveal"><span class="t-en"><div class="k">Market</div></span><span class="t-zh"><div class="k">市场</div></span><h4><span class="t-en">Precision health is scaling fast</span><span class="t-zh">精准健康正在快速扩张</span></h4><p><span class="t-en">Digital health is on track to grow ~3.5× by 2030 — and emerging markets need affordable infrastructure most.</span><span class="t-zh">数字健康有望到 2030 年增长约 3.5 倍 —— 而新兴市场最需要可负担的基础设施。</span></p></div>
+        <div class="reveal"><span class="t-en"><div class="k">Technology</div></span><span class="t-zh"><div class="k">技术</div></span><h4><span class="t-en">The models are finally ready</span><span class="t-zh">模型终于成熟</span></h4><p><span class="t-en">Generative AI, omics foundation models and polygenic scoring make explainable, broad-spectrum lifelong prediction possible for the first time.</span><span class="t-zh">生成式 AI、组学基础模型与多基因评分，首次让可解释、广谱、终身的健康预测成为可能。</span></p></div>
+        <div class="reveal"><span class="t-en"><div class="k">Customers</div></span><span class="t-zh"><div class="k">客户</div></span><h4><span class="t-en">Everyone needs the layer</span><span class="t-zh">每个角色都需要这一层</span></h4><p><span class="t-en">Individuals, doctors and hospitals — plus labs, insurers and DTC providers — all need one tool to unify data and fill the infrastructure gap.</span><span class="t-zh">个人、医生与医院 —— 以及实验室、保险公司与 DTC 厂商 —— 都需要一个工具来统一数据、填补基础设施空白。</span></p></div>
       </div>
     </div>
   </section>
@@ -546,66 +555,66 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="solution">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">The solution</p>
-        <h2>A personal AI health twin.</h2>
-        <p class="lead">2Health AI unifies each person's genomic, clinical and wearable data into one continuously-updating digital twin — turning scattered data into clear, conversational, lifelong health guidance.</p>
+        <p class="eyebrow"><span class="t-en">The solution</span><span class="t-zh">解决方案</span></p>
+        <h2><span class="t-en">A personal AI health twin.</span><span class="t-zh">一个个人 AI 健康孪生。</span></h2>
+        <p class="lead"><span class="t-en">2Health AI unifies each person's genomic, clinical and wearable data into one continuously-updating digital twin — turning scattered data into clear, conversational, lifelong health guidance.</span><span class="t-zh">2Health AI 将每个人的基因组、临床与可穿戴数据整合为一个持续更新的数字孪生 —— 把零散的数据变成清晰、可对话、可陪伴一生的健康指引。</span></p>
       </div>
       <div class="grid steps">
         <div class="step reveal">
-          <div class="k"><b>01</b> Integrate</div>
-          <h3>All your data, one twin</h3>
-          <p>Genomic, clinical, wearable and lifestyle data, unified in a single cloud twin that keeps updating for life.</p>
+          <div class="k"><span class="t-en"><b>01</b> Integrate</span><span class="t-zh"><b>01</b> 整合</span></div>
+          <h3><span class="t-en">All your data, one twin</span><span class="t-zh">所有数据，一个孪生</span></h3>
+          <p><span class="t-en">Genomic, clinical, wearable and lifestyle data, unified in a single cloud twin that keeps updating for life.</span><span class="t-zh">基因组、临床、可穿戴与生活方式数据，统一到一个持续更新、伴随终身的云端孪生中。</span></p>
         </div>
         <div class="step reveal">
-          <div class="k"><b>02</b> Predict</div>
-          <h3>Broad-spectrum risk</h3>
-          <p>Personalized disease-risk and health-trajectory models across a wide range of conditions.</p>
+          <div class="k"><span class="t-en"><b>02</b> Predict</span><span class="t-zh"><b>02</b> 预测</span></div>
+          <h3><span class="t-en">Broad-spectrum risk</span><span class="t-zh">广谱风险预测</span></h3>
+          <p><span class="t-en">Personalized disease-risk and health-trajectory models across a wide range of conditions.</span><span class="t-zh">覆盖多种疾病的个性化风险与健康轨迹预测模型。</span></p>
         </div>
         <div class="step reveal">
-          <div class="k"><b>03</b> Personalize</div>
-          <h3>Guidance that acts</h3>
-          <p>Actionable prevention, lifestyle, products and care — tailored to each individual twin.</p>
+          <div class="k"><span class="t-en"><b>03</b> Personalize</span><span class="t-zh"><b>03</b> 个性化</span></div>
+          <h3><span class="t-en">Guidance that acts</span><span class="t-zh">可执行的指引</span></h3>
+          <p><span class="t-en">Actionable prevention, lifestyle, products and care — tailored to each individual twin.</span><span class="t-zh">可落地的预防、生活方式、产品与照护建议 —— 为每个数字孪生量身定制。</span></p>
         </div>
       </div>
-      <p class="flow-note reveal">From scattered one-time reports <em>→</em> a lifelong health operating system.</p>
+      <p class="flow-note reveal"><span class="t-en">From scattered one-time reports <em>→</em> a lifelong health operating system.</span><span class="t-zh">从零散的一次性报告 <em>→</em> 一个陪伴终身的健康操作系统。</span></p>
     </div>
   </section>
 
-  <!-- ============ Why 2Health AI ============ -->
+  <!-- ============ <span class="t-en">Why 2Health AI</span><span class="t-zh">为何选择 2Health AI</span> ============ -->
   <section class="section" id="why">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Why 2Health AI</p>
-        <h2>The core AI engine for Digital Public Infrastructure of Health.</h2>
-        <p class="lead">Across much of Asia and Africa there is no unified health identity or interoperable record — care cannot follow the patient across hospitals or borders. 2Health AI provides the missing layer: a portable, user-owned Human Digital Twin, and the AI operating system that powers it.</p>
+        <p class="eyebrow"><span class="t-en">Why 2Health AI</span><span class="t-zh">为何选择 2Health AI</span></p>
+        <h2><span class="t-en">The core AI engine for Digital Public Infrastructure of Health.</span><span class="t-zh">健康数字公共基础设施的核心 AI 引擎。</span></h2>
+        <p class="lead"><span class="t-en">Across much of Asia and Africa there is no unified health identity or interoperable record — care cannot follow the patient across hospitals or borders. 2Health AI provides the missing layer: a portable, user-owned Human Digital Twin, and the AI operating system that powers it.</span><span class="t-zh">在亚洲与非洲的大部分地区，没有统一的健康身份，也没有可互操作的健康档案 —— 医疗照护无法随患者跨院、跨境流动。2Health AI 补上缺失的这一层：一个可携带、用户自持的人类数字孪生，以及驱动它的 AI 操作系统。</span></p>
       </div>
       <div class="grid cols-2">
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></svg></div>
-          <h3>Higher accuracy</h3>
-          <p>Multi-omics prediction built on polygenic risk scores lifts accuracy <b>+30–60%</b> over traditional models — reaching up to <b>0.9 AUC</b> on key diseases (internal testing).</p>
+          <h3><span class="t-en">Higher accuracy</span><span class="t-zh">更高准确度</span></h3>
+          <p><span class="t-en">Multi-omics prediction built on polygenic risk scores lifts accuracy <b>+30–60%</b> over traditional models — reaching up to <b>0.9 AUC</b> on key diseases (internal testing).</span><span class="t-zh">以多基因风险评分为核心的多组学预测，较传统模型提升约 <b>+30–60%</b> 准确度 —— 部分关键疾病可达 <b>0.9 AUC</b>（公司内部测算）。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-          <h3>Broader coverage</h3>
-          <p>A single upload analyses <b>1,000+ phenotypes</b> across 30+ disease categories — where typical direct-to-consumer reports cover fewer than 100.</p>
+          <h3><span class="t-en">Broader coverage</span><span class="t-zh">更广覆盖</span></h3>
+          <p><span class="t-en">A single upload analyses <b>1,000+ phenotypes</b> across 30+ disease categories — where typical direct-to-consumer reports cover fewer than 100.</span><span class="t-zh">单次上传即可分析 <b>1,000+ 种表型</b>，覆盖 30+ 疾病类别 —— 而同类面向消费者的报告通常覆盖不足 100 项。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3>Explainable by design</h3>
-          <p>Every genetic risk is visualised against a reference population and interpreted live by an AI assistant — not a static PDF.</p>
+          <h3><span class="t-en">Explainable by design</span><span class="t-zh">生而可解释</span></h3>
+          <p><span class="t-en">Every genetic risk is visualised against a reference population and interpreted live by an AI assistant — not a static PDF.</span><span class="t-zh">每一项遗传风险都对照参考人群可视化呈现，并由 AI 助手实时解读 —— 而非一份静态 PDF。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
-          <h3>From report to operating system</h3>
-          <p>Competitors stop at a one-time test. 2HAI turns that data into a lifelong, continuously-updating twin connected to real care and commerce.</p>
+          <h3><span class="t-en">From report to operating system</span><span class="t-zh">从报告到操作系统</span></h3>
+          <p><span class="t-en">Competitors stop at a one-time test. 2HAI turns that data into a lifelong, continuously-updating twin connected to real care and commerce.</span><span class="t-zh">竞品止步于一次性检测。2HAI 把这些数据变成一个陪伴终身、持续更新，并连接真实诊疗与消费的孪生。</span></p>
         </div>
       </div>
       <div class="grid versus">
-        <div class="vs reveal"><div class="vk">vs DTC gene tests</div><p>They stop at a <b>one-off report</b> — we build a lifelong, updating twin.</p></div>
-        <div class="vs reveal"><div class="vk">vs Wearables &amp; apps</div><p>Great at signals, but <b>no omics depth</b> or disease-risk prediction.</p></div>
-        <div class="vs reveal"><div class="vk">vs Hospital IT / EMR</div><p>Record-centric — data <b>doesn't travel</b> with the person.</p></div>
-        <div class="vs reveal"><div class="vk">vs General AI assistants</div><p>Fluent chat, but <b>no structured omics base</b> to personalise on.</p></div>
+        <div class="vs reveal"><div class="vk"><span class="t-en">vs DTC gene tests</span><span class="t-zh">对比 DTC 基因检测</span></div><p><span class="t-en">They stop at a <b>one-off report</b> — we build a lifelong, updating twin.</span><span class="t-zh">它们止步于<b>一次性报告</b> —— 我们构建持续更新的终身孪生。</span></p></div>
+        <div class="vs reveal"><div class="vk"><span class="t-en">vs Wearables &amp; apps</span><span class="t-zh">对比可穿戴与 App</span></div><p><span class="t-en">Great at signals, but <b>no omics depth</b> or disease-risk prediction.</span><span class="t-zh">擅长采集体征，却<b>缺乏组学深度</b>与疾病风险预测。</span></p></div>
+        <div class="vs reveal"><div class="vk"><span class="t-en">vs Hospital IT / EMR</span><span class="t-zh">对比医院信息化 / EMR</span></div><p><span class="t-en">Record-centric — data <b>doesn't travel</b> with the person.</span><span class="t-zh">以病历为中心 —— 数据<b>无法随人流动</b>。</span></p></div>
+        <div class="vs reveal"><div class="vk"><span class="t-en">vs General AI assistants</span><span class="t-zh">对比通用 AI 助手</span></div><p><span class="t-en">Fluent chat, but <b>no structured omics base</b> to personalise on.</span><span class="t-zh">对话流畅，却<b>没有结构化的组学底座</b>可供个性化。</span></p></div>
       </div>
     </div>
   </section>
@@ -614,84 +623,84 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="platform">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">The platform</p>
-        <h2>One platform, three interfaces.</h2>
-        <p class="lead">The world's first human digital twin operating system serves individuals, doctors and suppliers from a single intelligent core.</p>
+        <p class="eyebrow"><span class="t-en">The platform</span><span class="t-zh">平台</span></p>
+        <h2><span class="t-en">One platform, three interfaces.</span><span class="t-zh">一个平台，三端界面。</span></h2>
+        <p class="lead"><span class="t-en">The world's first human digital twin operating system serves individuals, doctors and suppliers from a single intelligent core.</span><span class="t-zh">全球首个人类数字孪生操作系统，以单一智能内核，同时服务个人、医生与供应商三端。</span></p>
       </div>
       <div class="grid iface">
         <div class="iface-card reveal">
           <div class="iface-top">
-            <div><h3>Personal</h3><div class="sub">Your lifelong health twin</div></div>
+            <span class="t-en"><div><h3>Personal</h3><div class="sub">Your lifelong health twin</div></div></span><span class="t-zh"><div><h3>个人端</h3><div class="sub">你的终身健康孪生</div></div></span>
             <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/></svg><span class="pct">90%</span></div>
           </div>
           <ul>
-            <li>Full-life-cycle health management</li>
-            <li>Broad-spectrum risk prediction</li>
-            <li>AI health assistant in every module</li>
-            <li>Biological age &amp; life-expectancy estimation</li>
-            <li>Dynamic health credit score &amp; wallet</li>
+            <span class="t-en"><li>Full-life-cycle health management</li></span><span class="t-zh"><li>全生命周期健康管理</li></span>
+            <span class="t-en"><li>Broad-spectrum risk prediction</li></span><span class="t-zh"><li>广谱疾病风险预测</li></span>
+            <span class="t-en"><li>AI health assistant in every module</li></span><span class="t-zh"><li>每个模块内置 AI 健康助手</li></span>
+            <span class="t-en"><li>Biological age &amp; life-expectancy estimation</li></span><span class="t-zh"><li>生物年龄与预期寿命评估</li></span>
+            <span class="t-en"><li>Dynamic health credit score &amp; wallet</li></span><span class="t-zh"><li>动态健康信用分与钱包</li></span>
           </ul>
-          <p class="more">+ AI doctor, telemedicine, marketplace &amp; 30+ modules</p>
+          <p class="more"><span class="t-en">+ AI doctor, telemedicine, marketplace &amp; 30+ modules</span><span class="t-zh">+ AI 医生、远程问诊、商城等 30+ 模块</span></p>
         </div>
         <div class="iface-card reveal">
           <div class="iface-top">
-            <div><h3>Doctor</h3><div class="sub">Digital public infrastructure</div></div>
+            <span class="t-en"><div><h3>Doctor</h3><div class="sub">Digital public infrastructure</div></div></span><span class="t-zh"><div><h3>医生端</h3><div class="sub">数字公共基础设施</div></div></span>
             <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/></svg><span class="pct">90%</span></div>
           </div>
           <ul>
-            <li>Telemedicine &amp; appointment management</li>
-            <li>AI-assisted consultation</li>
-            <li>Referrals &amp; e-prescribing</li>
-            <li>Training, certification &amp; professional forum</li>
-            <li>Patient history &amp; data management</li>
+            <span class="t-en"><li>Telemedicine &amp; appointment management</li></span><span class="t-zh"><li>远程问诊与预约管理</li></span>
+            <span class="t-en"><li>AI-assisted consultation</li></span><span class="t-zh"><li>AI 辅助会诊</li></span>
+            <span class="t-en"><li>Referrals &amp; e-prescribing</li></span><span class="t-zh"><li>转诊与电子处方</li></span>
+            <span class="t-en"><li>Training, certification &amp; professional forum</li></span><span class="t-zh"><li>培训、认证与专业论坛</li></span>
+            <span class="t-en"><li>Patient history &amp; data management</li></span><span class="t-zh"><li>病患历史与数据管理</li></span>
           </ul>
-          <p class="more">A public-good clinical layer — from data to diagnosis</p>
+          <p class="more"><span class="t-en">A public-good clinical layer — from data to diagnosis</span><span class="t-zh">面向公共利益的临床层 —— 从数据到诊断</span></p>
         </div>
         <div class="iface-card reveal">
           <div class="iface-top">
-            <div><h3>Supplier</h3><div class="sub">Verified health commerce</div></div>
+            <span class="t-en"><div><h3>Supplier</h3><div class="sub">Verified health commerce</div></div></span><span class="t-zh"><div><h3>供应商端</h3><div class="sub">可信健康电商</div></div></span>
             <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="45.24"/></svg><span class="pct">70%</span></div>
           </div>
           <ul>
-            <li>Verified merchant &amp; clinic onboarding</li>
-            <li>AI demand matching to real twin data</li>
-            <li>Unified cart, checkout &amp; wallet</li>
-            <li>Orders, logistics &amp; fulfilment</li>
-            <li>Ratings, reviews &amp; e-shops</li>
+            <span class="t-en"><li>Verified merchant &amp; clinic onboarding</li></span><span class="t-zh"><li>认证商户与诊所入驻</li></span>
+            <span class="t-en"><li>AI demand matching to real twin data</li></span><span class="t-zh"><li>基于真实孪生数据的 AI 需求匹配</li></span>
+            <span class="t-en"><li>Unified cart, checkout &amp; wallet</li></span><span class="t-zh"><li>统一购物车、结算与钱包</li></span>
+            <span class="t-en"><li>Orders, logistics &amp; fulfilment</li></span><span class="t-zh"><li>订单、物流与履约</li></span>
+            <span class="t-en"><li>Ratings, reviews &amp; e-shops</li></span><span class="t-zh"><li>评分、评价与网店</li></span>
           </ul>
-          <p class="more">Commission / GMV-share revenue</p>
+          <p class="more"><span class="t-en">Commission / GMV-share revenue</span><span class="t-zh">佣金 / GMV 分成收入</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Who it's for ============ -->
+  <!-- ============ <span class="t-en">Who it's for</span><span class="t-zh">为谁而建</span> ============ -->
   <section class="section" id="usecases">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Who it's for</p>
-        <h2>Built for everyone in the loop.</h2>
+        <p class="eyebrow"><span class="t-en">Who it's for</span><span class="t-zh">为谁而建</span></p>
+        <h2><span class="t-en">Built for everyone in the loop.</span><span class="t-zh">为医疗闭环中的每个人而建。</span></h2>
       </div>
       <div class="grid cols-2">
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.5 20a5 5 0 0 1 6-4.7"/></svg></div>
-          <h3>Individuals &amp; families</h3>
-          <p>Lifelong self-management and one continuously-updating personal health twin for the whole family.</p>
+          <h3><span class="t-en">Individuals &amp; families</span><span class="t-zh">个人与家庭</span></h3>
+          <p><span class="t-en">Lifelong self-management and one continuously-updating personal health twin for the whole family.</span><span class="t-zh">终身自我管理，为全家打造一个持续更新的个人健康孪生。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M4 3h3M13 3h3"/><path d="M10 15a5 5 0 0 0 5 5 4 4 0 0 0 4-4v-2"/><circle cx="19" cy="12" r="2"/></svg></div>
-          <h3>Doctors &amp; clinics</h3>
-          <p>Manage patients long-term and run a clinic through the Active Patient Workbench — from data to diagnosis and follow-up.</p>
+          <h3><span class="t-en">Doctors &amp; clinics</span><span class="t-zh">医生与诊所</span></h3>
+          <p><span class="t-en">Manage patients long-term and run a clinic through the Active Patient Workbench — from data to diagnosis and follow-up.</span><span class="t-zh">通过“临床工作台（Active Patient Workbench）”长期管理病患、运营诊所 —— 从数据到诊断与随访。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.4"/><path d="M6 21c0-4 2.7-7 6-7s6 3 6 7"/><path d="M12 10.5v3"/></svg></div>
-          <h3>Parents</h3>
-          <p>Build a lifelong health twin for a child from infancy, with long-range prediction and prevention from day one.</p>
+          <span class="t-en"><h3>Parents</h3></span><span class="t-zh"><h3>家长</h3></span>
+          <p><span class="t-en">Build a lifelong health twin for a child from infancy, with long-range prediction and prevention from day one.</span><span class="t-zh">从婴幼儿时期起为孩子建立终身健康孪生，从第一天就开始长期预测与预防。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9l2.4 2.4L7 13.8M13 13.8h4"/></svg></div>
-          <h3>Enterprises &amp; research</h3>
-          <p>Plug in via API for cardiovascular, oncology, neuro/psychiatric and pediatric early-screening applications.</p>
+          <h3><span class="t-en">Enterprises &amp; research</span><span class="t-zh">企业与科研</span></h3>
+          <p><span class="t-en">Plug in via API for cardiovascular, oncology, neuro/psychiatric and pediatric early-screening applications.</span><span class="t-zh">通过 API 接入心血管、肿瘤、神经/精神及儿科等早期筛查应用。</span></p>
         </div>
       </div>
     </div>
@@ -701,31 +710,31 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section tech" id="technology">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Technology</p>
-        <h2>A defensible scientific moat.</h2>
-        <p class="lead">Built on world-class statistical genetics and frontier AI — with a data flywheel that compounds with every user.</p>
+        <span class="t-en"><p class="eyebrow">Technology</p></span><span class="t-zh"><p class="eyebrow">技术</p></span>
+        <h2><span class="t-en">A defensible scientific moat.</span><span class="t-zh">可防御的科学护城河。</span></h2>
+        <p class="lead"><span class="t-en">Built on world-class statistical genetics and frontier AI — with a data flywheel that compounds with every user.</span><span class="t-zh">建立在世界级统计遗传学与前沿 AI 之上 —— 数据飞轮随每一位用户不断复利增强。</span></p>
       </div>
       <div class="grid statgrid">
-        <div class="bigstat reveal"><div class="n">1,038+</div><div class="l">Phenotypes analysed per report</div></div>
-        <div class="bigstat reveal"><div class="n">2M+</div><div class="l">Genomic variants integrated, based on polygenic scores</div></div>
-        <div class="bigstat reveal"><div class="n">5,000+</div><div class="l">GWAS studies in training data</div></div>
-        <div class="bigstat reveal"><div class="n">0.9 AUC</div><div class="l">On key diseases · +30–60% vs traditional methods</div></div>
+        <div class="bigstat reveal"><div class="n">1,038+</div><div class="l"><span class="t-en">Phenotypes analysed per report</span><span class="t-zh">每份报告分析的表型数</span></div></div>
+        <div class="bigstat reveal"><div class="n">2M+</div><div class="l"><span class="t-en">Genomic variants integrated, based on polygenic scores</span><span class="t-zh">整合的基因组变异（基于多基因评分）</span></div></div>
+        <div class="bigstat reveal"><div class="n">5,000+</div><div class="l"><span class="t-en">GWAS studies in training data</span><span class="t-zh">训练数据中的 GWAS 研究</span></div></div>
+        <div class="bigstat reveal"><div class="n">0.9 AUC</div><div class="l"><span class="t-en">On key diseases · +30–60% vs traditional methods</span><span class="t-zh">关键疾病 · 较传统方法提升 +30–60%</span></div></div>
       </div>
       <div class="grid pillars">
         <div class="pillar reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.4"/><circle cx="5" cy="18" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M12 7.4v4M10 13l-3.4 3M14 13l3.4 3"/></svg></div>
-          <h3>Mixture-of-experts models</h3>
-          <p>Open LLMs combined with bioscience models — AlphaFold2, AlphaGenome, Evo2 — orchestrated under a RAG + agent framework.</p>
+          <h3><span class="t-en">Mixture-of-experts models</span><span class="t-zh">混合专家模型</span></h3>
+          <p><span class="t-en">Open LLMs combined with bioscience models — AlphaFold2, AlphaGenome, Evo2 — orchestrated under a RAG + agent framework.</span><span class="t-zh">开源大模型与生命科学基础模型 —— AlphaFold2、AlphaGenome、Evo2 —— 在 RAG + 智能体框架下协同编排。</span></p>
         </div>
         <div class="pillar reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/><path d="M18 4v3h-3M6 20v-3h3"/></svg></div>
-          <h3>Self-reinforcing data flywheel</h3>
-          <p>Multi-omic and multimodal data flows back continuously — models and personalization compound with every new user.</p>
+          <h3><span class="t-en">Self-reinforcing data flywheel</span><span class="t-zh">自我强化的数据飞轮</span></h3>
+          <p><span class="t-en">Multi-omic and multimodal data flows back continuously — models and personalization compound with every new user.</span><span class="t-zh">多组学与多模态数据持续回流 —— 模型与个性化能力随每一位新用户不断复利增强。</span></p>
         </div>
         <div class="pillar reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M6 10v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></div>
-          <h3>Academic translation</h3>
-          <p>Built on Prof. Pak Sham's statistical-genetics group at HKU, with an HKU PhD founding team turning research into product.</p>
+          <h3><span class="t-en">Academic translation</span><span class="t-zh">学术转化</span></h3>
+          <p><span class="t-en">Built on Prof. Pak Sham's statistical-genetics group at HKU, with an HKU PhD founding team turning research into product.</span><span class="t-zh">依托香港大学沈柏松教授的统计遗传学团队，由港大博士创始团队将研究转化为产品。</span></p>
         </div>
       </div>
     </div>
@@ -735,34 +744,35 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="pipeline">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Applications &amp; pipeline</p>
-        <h2>One engine, a growing family of applications.</h2>
-        <p class="lead">Specialised models extend the twin into high-value clinical domains.</p>
+        <p class="eyebrow"><span class="t-en">Applications &amp; pipeline</span><span class="t-zh">应用与管线</span></p>
+        <h2><span class="t-en">One engine, a growing family of applications.</span><span class="t-zh">一个引擎，不断扩展的应用家族。</span></h2>
+        <p class="lead"><span class="t-en">Specialised models extend the twin into high-value clinical domains.</span><span class="t-zh">专项模型把数字孪生延伸到高价值的临床领域。</span></p>
       </div>
       <div class="grid cols-2">
         <div class="card reveal">
-          <span class="chip live"><span class="live-dot"></span>Live 1.0</span>
+          <span class="t-en"><span class="chip live"><span class="live-dot"></span>Live 1.0</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>已上线 1.0</span></span>
           <h3>G2H-CVD</h3>
-          <p>Cardiovascular disease risk prediction — live today.</p>
-          <div class="ptime">Clinical + commercial validation · 2026–2027</div>
+          <p><span class="t-en">Cardiovascular disease risk prediction — try the live risk tool today.</span><span class="t-zh">心血管疾病风险预测 —— 立即体验在线风险评估工具。</span></p>
+          <a class="card-link" href="https://gene2health.shinyapps.io/ASCVD_Risk_Evaluation/" target="_blank" rel="noopener"><span class="t-en">Open the ASCVD risk tool </span><span class="t-zh">打开 ASCVD 风险评估工具 </span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <div class="ptime"><span class="t-en">Clinical + commercial validation · 2026–2027</span><span class="t-zh">临床与商业化验证 · 2026–2027</span></div>
         </div>
         <div class="card reveal">
-          <span class="chip soon">Validating</span>
+          <span class="t-en"><span class="chip soon">Validating</span></span><span class="t-zh"><span class="chip soon">验证中</span></span>
           <h3>G2H-Onco</h3>
-          <p>Cancer early screening — multi-marker, multi-omics modelling.</p>
-          <div class="ptime">Target · 2027</div>
+          <p><span class="t-en">Cancer early screening — multi-marker, multi-omics modelling.</span><span class="t-zh">癌症早期筛查 —— 多标志物、多组学建模。</span></p>
+          <span class="t-en"><div class="ptime">Target · 2027</div></span><span class="t-zh"><div class="ptime">目标 · 2027</div></span>
         </div>
         <div class="card reveal">
-          <span class="chip soon">Research</span>
+          <span class="t-en"><span class="chip soon">Research</span></span><span class="t-zh"><span class="chip soon">研究中</span></span>
           <h3>G2H-Neuro</h3>
-          <p>Neurological &amp; psychiatric risk, in cohort collaboration.</p>
-          <div class="ptime">Target · 2027–2028</div>
+          <p><span class="t-en">Neurological &amp; psychiatric risk, in cohort collaboration.</span><span class="t-zh">神经与精神疾病风险，队列合作研究中。</span></p>
+          <div class="ptime"><span class="t-en">Target · 2027–2028</span><span class="t-zh">目标 · 2027–2028</span></div>
         </div>
         <div class="card reveal">
-          <span class="chip live"><span class="live-dot"></span>Live</span>
+          <span class="t-en"><span class="chip live"><span class="live-dot"></span>Live</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>已上线</span></span>
           <h3>2HAI for Lab</h3>
-          <p>Automated multi-omics analysis for research institutions.</p>
-          <div class="ptime">Live · continuous iteration</div>
+          <p><span class="t-en">Automated multi-omics analysis for research institutions.</span><span class="t-zh">面向科研机构的多组学自动化分析。</span></p>
+          <div class="ptime"><span class="t-en">Live · continuous iteration</span><span class="t-zh">已上线 · 持续迭代</span></div>
         </div>
       </div>
     </div>
@@ -772,17 +782,17 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="traction">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Traction</p>
-        <h2>Live product, real-world momentum.</h2>
-        <p class="lead">The full web platform is live and in use today — with pilots, partnerships and recognition already in motion.</p>
+        <span class="t-en"><p class="eyebrow">Traction</p></span><span class="t-zh"><p class="eyebrow">进展</p></span>
+        <h2><span class="t-en">Live product, real-world momentum.</span><span class="t-zh">产品已上线，落地势能持续。</span></h2>
+        <p class="lead"><span class="t-en">The full web platform is live and in use today — with pilots, partnerships and recognition already in motion.</span><span class="t-zh">完整的网页平台已上线并投入使用 —— 试点、合作与获奖同步推进中。</span></p>
       </div>
       <div class="grid trac">
-        <div class="tcard reveal"><span class="chip live"><span class="live-dot"></span>Live now</span><h3>Platform live</h3><p>The full web platform — personal, doctor and supplier — is live and in use today at 2health.ai.</p></div>
-        <div class="tcard reveal"><span class="chip soon">Launching</span><h3>Mobile app</h3><p>Native mobile apps rolling out in 2026, bringing the twin into everyday use.</p></div>
-        <div class="tcard reveal"><span class="chip live"><span class="live-dot"></span>Pilots</span><h3>Hospital pilots</h3><p>Live pilots underway with leading private hospitals and clinic networks in Southeast Asia.</p></div>
-        <div class="tcard reveal"><span class="chip live"><span class="live-dot"></span>Partnerships</span><h3>Cross-border MOUs</h3><p>Signed with major hospital groups and clinic networks across Southeast Asia and Greater China.</p></div>
-        <div class="tcard reveal"><span class="chip soon">Expansion</span><h3>International JV</h3><p>A strategic partnership with leading regional investors to establish a joint venture for Southeast Asia and beyond.</p></div>
-        <div class="tcard reveal"><span class="chip live"><span class="live-dot"></span>Recognition</span><h3>Awards &amp; funding</h3><p>Hong Kong Government funding-scheme awardee; Maker-in-China 2025 (HK) Top 10 Award.</p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip live"><span class="live-dot"></span>Live now</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>上线运行</span></span><h3><span class="t-en">Platform live</span><span class="t-zh">平台已上线</span></h3><p><span class="t-en">The full web platform — personal, doctor and supplier — is live and in use today at 2health.ai.</span><span class="t-zh">完整网页平台 —— 个人端、医生端与供应商端 —— 已在 2health.ai 上线并投入使用。</span></p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip soon">Launching</span></span><span class="t-zh"><span class="chip soon">即将上线</span></span><h3><span class="t-en">Mobile app</span><span class="t-zh">移动 App</span></h3><p><span class="t-en">Native mobile apps rolling out in 2026, bringing the twin into everyday use.</span><span class="t-zh">原生移动应用将于 2026 年陆续上架，让数字孪生融入日常。</span></p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip live"><span class="live-dot"></span>Pilots</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>试点</span></span><h3><span class="t-en">Hospital pilots</span><span class="t-zh">医院试点</span></h3><p><span class="t-en">Live pilots underway with leading private hospitals and clinic networks in Southeast Asia.</span><span class="t-zh">已与东南亚多家领先私立医院及诊所网络开展在线试点。</span></p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip live"><span class="live-dot"></span>Partnerships</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>合作</span></span><h3><span class="t-en">Cross-border MOUs</span><span class="t-zh">跨境合作备忘录</span></h3><p><span class="t-en">Signed with major hospital groups and clinic networks across Southeast Asia and Greater China.</span><span class="t-zh">已与东南亚及大中华区多家大型医院集团与诊所网络签署。</span></p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip soon">Expansion</span></span><span class="t-zh"><span class="chip soon">扩张</span></span><h3><span class="t-en">International JV</span><span class="t-zh">国际合资</span></h3><p><span class="t-en">A strategic partnership with leading regional investors to establish a joint venture for Southeast Asia and beyond.</span><span class="t-zh">与区域领先投资方达成战略合作，拟设立合资公司拓展东南亚及更广市场。</span></p></div>
+        <div class="tcard reveal"><span class="t-en"><span class="chip live"><span class="live-dot"></span>Recognition</span></span><span class="t-zh"><span class="chip live"><span class="live-dot"></span>获奖认可</span></span><h3><span class="t-en">Awards &amp; funding</span><span class="t-zh">奖项与资助</span></h3><p><span class="t-en">Hong Kong Government funding-scheme awardee; Maker-in-China 2025 (HK) Top 10 Award.</span><span class="t-zh">香港政府资助计划获资助方；创客中国 2025（香港）前十强。</span></p></div>
       </div>
     </div>
   </section>
@@ -791,60 +801,60 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section market" id="market">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Market</p>
-        <h2>A large, fast-growing market.</h2>
+        <span class="t-en"><p class="eyebrow">Market</p></span><span class="t-zh"><p class="eyebrow">市场</p></span>
+        <h2><span class="t-en">A large, fast-growing market.</span><span class="t-zh">一个庞大且高速增长的市场。</span></h2>
       </div>
       <div class="market-grid">
         <div class="mstats reveal">
-          <div class="mstat"><span class="n">$162B</span><span class="l">Global digital health market (2024) · ~23.6% CAGR to 2030</span></div>
-          <div class="mstat"><span class="n">$252B</span><span class="l">Asia Pacific market by 2030 · fastest-growing region, ~23.1% CAGR</span></div>
-          <div class="mstat"><span class="n">$574B</span><span class="l">Projected global market by 2030</span></div>
+          <div class="mstat"><span class="n">$162B</span><span class="l"><span class="t-en">Global digital health market (2024) · ~23.6% CAGR to 2030</span><span class="t-zh">全球数字健康市场（2024）· 至 2030 年复合年增长率约 23.6%</span></span></div>
+          <div class="mstat"><span class="n">$252B</span><span class="l"><span class="t-en">Asia Pacific market by 2030 · fastest-growing region, ~23.1% CAGR</span><span class="t-zh">2030 年亚太市场 · 增长最快区域，复合年增长率约 23.1%</span></span></div>
+          <div class="mstat"><span class="n">$574B</span><span class="l"><span class="t-en">Projected global market by 2030</span><span class="t-zh">预计 2030 年全球市场规模</span></span></div>
         </div>
         <div class="mbars reveal">
-          <h4>Global digital health market · US$ billion</h4>
+          <h4><span class="t-en">Global digital health market · US$ billion</span><span class="t-zh">全球数字健康市场 · 十亿美元</span></h4>
           <div class="bar-row"><span class="yr">2024</span><div class="bar-track"><div class="bar-fill" style="width:28%">$162B</div></div></div>
           <div class="bar-row"><span class="yr">2030</span><div class="bar-track"><div class="bar-fill" style="width:100%">$574B</div></div></div>
-          <p class="cap">~3.5× growth 2024–2030, with Asia Pacific the fastest-growing region.</p>
+          <p class="cap"><span class="t-en">~3.5× growth 2024–2030, with Asia Pacific the fastest-growing region.</span><span class="t-zh">2024–2030 年约 3.5 倍增长，亚太为增长最快区域。</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Business model ============ -->
+  <!-- ============ <span class="t-en">Business model</span><span class="t-zh">商业模式</span> ============ -->
   <section class="section" id="model">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Business model</p>
-        <h2>Multiple ways to create — and capture — value.</h2>
-        <p class="lead">An “engine + ecosystem” model: 2Health AI provides the AI engine and platform, and local partners build the ecosystem in each market — turning one-off consumption into recurring, multi-stream revenue.</p>
+        <p class="eyebrow"><span class="t-en">Business model</span><span class="t-zh">商业模式</span></p>
+        <h2><span class="t-en">Multiple ways to create — and capture — value.</span><span class="t-zh">多种方式创造 —— 并捕获 —— 价值。</span></h2>
+        <p class="lead"><span class="t-en">An “engine + ecosystem” model: 2Health AI provides the AI engine and platform, and local partners build the ecosystem in each market — turning one-off consumption into recurring, multi-stream revenue.</span><span class="t-zh">“引擎 + 生态”模式：2Health AI 提供 AI 引擎与平台，本地伙伴在各市场共建生态 —— 把一次性消费转化为经常性、多来源的收入。</span></p>
       </div>
       <div class="grid model">
         <div class="mcard reveal">
           <span class="tag">B2B / B2D</span>
-          <h3>Labs, pharma &amp; research</h3>
-          <p>API and project licensing, or white-label, for DTC labs, pharma and research groups.</p>
-          <div class="price">API &amp; licensing · per-seat for practitioners</div>
+          <h3><span class="t-en">Labs, pharma &amp; research</span><span class="t-zh">实验室、药企与科研</span></h3>
+          <p><span class="t-en">API and project licensing, or white-label, for DTC labs, pharma and research groups.</span><span class="t-zh">面向 DTC 实验室、药企与科研机构的 API 与项目授权，或白标合作。</span></p>
+          <div class="price"><span class="t-en">API &amp; licensing · per-seat for practitioners</span><span class="t-zh">API 与授权 · 从业者按席位计费</span></div>
         </div>
         <div class="mcard reveal">
           <span class="tag">B2B2C</span>
-          <h3>Fintech, banks &amp; insurers</h3>
-          <p>Health data assets, credit scores and verified personal profiles that power insurance, lending and discounts.</p>
-          <div class="price">Per-profile &amp; per-practitioner</div>
+          <h3><span class="t-en">Fintech, banks &amp; insurers</span><span class="t-zh">金融科技、银行与保险</span></h3>
+          <p><span class="t-en">Health data assets, credit scores and verified personal profiles that power insurance, lending and discounts.</span><span class="t-zh">健康数据资产、信用评分与可信个人画像，赋能保险、信贷与折扣。</span></p>
+          <div class="price"><span class="t-en">Per-profile &amp; per-practitioner</span><span class="t-zh">按画像 / 按从业者计费</span></div>
         </div>
         <div class="mcard reveal">
           <span class="tag">B2C</span>
-          <h3>Individuals &amp; families</h3>
-          <p>Subscriptions, upgrades and tokens for the personal health twin and its assistants.</p>
-          <div class="price">Subscription + upgrades</div>
+          <h3><span class="t-en">Individuals &amp; families</span><span class="t-zh">个人与家庭</span></h3>
+          <p><span class="t-en">Subscriptions, upgrades and tokens for the personal health twin and its assistants.</span><span class="t-zh">个人健康孪生及其助手的订阅、增值与 tokens 消费。</span></p>
+          <div class="price"><span class="t-en">Subscription + upgrades</span><span class="t-zh">订阅 + 增值</span></div>
         </div>
         <div class="mcard reveal">
-          <span class="tag">Marketplace</span>
-          <h3>Products &amp; services hub</h3>
-          <p>AI-matched health commerce connecting verified suppliers to real, twin-derived demand.</p>
-          <div class="price">Commission / GMV share</div>
+          <span class="t-en"><span class="tag">Marketplace</span></span><span class="t-zh"><span class="tag">健康市场</span></span>
+          <h3><span class="t-en">Products &amp; services hub</span><span class="t-zh">产品与服务市场</span></h3>
+          <p><span class="t-en">AI-matched health commerce connecting verified suppliers to real, twin-derived demand.</span><span class="t-zh">由 AI 匹配的健康电商，连接认证供应商与源自孪生的真实需求。</span></p>
+          <div class="price"><span class="t-en">Commission / GMV share</span><span class="t-zh">佣金 / GMV 分成</span></div>
         </div>
       </div>
-      <p class="model-note reveal"><em>“More engagement, deeper stickiness”</em> — from one-off consumption to recurring, multi-stream revenue.</p>
+      <p class="model-note reveal"><span class="t-en"><em>“More engagement, deeper stickiness”</em> — from one-off consumption to recurring, multi-stream revenue.</span><span class="t-zh"><em>“更多互动，更强黏性”</em> —— 从一次性消费到经常性、多来源的收入。</span></p>
     </div>
   </section>
 
@@ -852,29 +862,29 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="trust">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Trust, privacy &amp; compliance</p>
-        <h2>Built to be trusted with the most personal data there is.</h2>
+        <p class="eyebrow"><span class="t-en">Trust, privacy &amp; compliance</span><span class="t-zh">信任、隐私与合规</span></p>
+        <h2><span class="t-en">Built to be trusted with the most personal data there is.</span><span class="t-zh">为托付最私密的数据而生的信任。</span></h2>
       </div>
       <div class="grid cols-2">
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Decision support, not diagnosis</h3>
-          <p>2HAI is positioned as health information and clinical decision support — not a diagnostic device or prescription. AI guidance is designed to be validated against current clinical guidelines.</p>
+          <h3><span class="t-en">Decision support, not diagnosis</span><span class="t-zh">决策支持，而非诊断</span></h3>
+          <p><span class="t-en">2HAI is positioned as health information and clinical decision support — not a diagnostic device or prescription. AI guidance is designed to be validated against current clinical guidelines.</span><span class="t-zh">2HAI 定位为健康信息与临床决策支持 —— 并非诊断器械或处方。AI 建议须依据现行临床指南进行验证。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 15v2"/></svg></div>
-          <h3>Privacy by design</h3>
-          <p>Encryption, de-identification, tiered and user-controlled authorization, and localized storage. Users keep the right to authorize — and revoke — access to their data.</p>
+          <h3><span class="t-en">Privacy by design</span><span class="t-zh">隐私即设计</span></h3>
+          <p><span class="t-en">Encryption, de-identification, tiered and user-controlled authorization, and localized storage. Users keep the right to authorize — and revoke — access to their data.</span><span class="t-zh">加密、去标识化、分级且由用户掌控的授权，以及本地化存储。用户始终保有授权 —— 及撤销 —— 数据访问的权利。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></div>
-          <h3>Multi-jurisdiction compliance</h3>
-          <p>Aligned with mainland China's PIPL, Data Security Law and human genetic-resources rules, Hong Kong's PDPO, Singapore's PDPA, and GDPR for international markets.</p>
+          <h3><span class="t-en">Multi-jurisdiction compliance</span><span class="t-zh">多法域合规</span></h3>
+          <p><span class="t-en">Aligned with mainland China's PIPL, Data Security Law and human genetic-resources rules, Hong Kong's PDPO, Singapore's PDPA, and GDPR for international markets.</span><span class="t-zh">遵循中国内地《个人信息保护法》《数据安全法》与人类遗传资源管理规定、香港《私隐条例》（PDPO）、新加坡 PDPA，以及面向国际市场的 GDPR。</span></p>
         </div>
         <div class="card reveal">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.5 5 5.5.8-4 3.9.95 5.5L12 20.1 7.05 17.7 8 12.2l-4-3.9 5.5-.8z"/></svg></div>
-          <h3>Proprietary methodology &amp; IP</h3>
-          <p>Self-developed statistical-genetics and polygenic-scoring methods, with 2Health AI trademarks registered or pending across key markets.</p>
+          <h3><span class="t-en">Proprietary methodology &amp; IP</span><span class="t-zh">自主方法学与知识产权</span></h3>
+          <p><span class="t-en">Self-developed statistical-genetics and polygenic-scoring methods, with 2Health AI trademarks registered or pending across key markets.</span><span class="t-zh">自主研发的统计遗传学与多基因评分方法，“2Health AI”商标在主要市场注册或申请中。</span></p>
         </div>
       </div>
     </div>
@@ -884,50 +894,50 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="team">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Structure &amp; team</p>
-        <h2>Built to invest in.</h2>
-        <p class="lead">2HEALTH AI LIMITED is a Hong Kong-based company that develops and operates 2Health AI, holding the core technology and IP.</p>
+        <p class="eyebrow"><span class="t-en">Structure &amp; team</span><span class="t-zh">架构与团队</span></p>
+        <h2><span class="t-en">Built to invest in.</span><span class="t-zh">值得投资的团队。</span></h2>
+        <p class="lead"><span class="t-en">2HEALTH AI LIMITED is a Hong Kong-based company that develops and operates 2Health AI, holding the core technology and IP.</span><span class="t-zh">2HEALTH AI LIMITED 是一家总部位于香港的公司，开发并运营 2Health AI，持有核心技术与知识产权。</span></p>
       </div>
 
       <div class="grid team">
         <div class="person reveal">
           <div class="mono-av photo face-lc" role="img" aria-label="Dr. Lane Chen"></div>
           <div>
-            <h3>Dr. Lane Chen · 陈国蓝</h3>
-            <div class="role">Founder · CEO · CTO · Director</div>
-            <p>HKU PhD in statistical genetics &amp; machine learning; BSc in biostatistics, Fudan University. Leads the company's technology and product direction.</p>
+            <h3><span class="t-en">Dr. Lane Chen · 陈国蓝</span><span class="t-zh">陈国蓝 Lane Chen</span></h3>
+            <div class="role"><span class="t-en">Founder · CEO · CTO · Director</span><span class="t-zh">创始人 · CEO · CTO · 董事</span></div>
+            <p><span class="t-en">HKU PhD in statistical genetics &amp; machine learning; BSc in biostatistics, Fudan University. Leads the company's technology and product direction.</span><span class="t-zh">香港大学统计遗传学与机器学习博士，复旦大学生物统计学学士。主导公司技术与产品方向。</span></p>
           </div>
         </div>
         <div class="person reveal">
           <div class="mono-av photo face-zz" role="img" aria-label="Dr. Zhang Zhifeng"></div>
           <div>
-            <h3>Dr. Zhang Zhifeng · 張志峰</h3>
-            <div class="role">Co-founder · CSO</div>
-            <p>HKU PhD in biochemistry &amp; pharmacy. Leads the company's scientific strategy &amp; research direction.</p>
+            <h3><span class="t-en">Dr. Zhang Zhifeng · 张志峰</span><span class="t-zh">张志峰 博士</span></h3>
+            <div class="role"><span class="t-en">Co-founder · CSO</span><span class="t-zh">联合创始人 · 首席科学官</span></div>
+            <p><span class="t-en">HKU PhD in biochemistry &amp; pharmacy. Leads the company's scientific strategy &amp; research direction.</span><span class="t-zh">香港大学生物化学与药学博士。负责公司科学战略与研究方向。</span></p>
           </div>
         </div>
       </div>
 
-      <p class="eyebrow reveal" style="margin-bottom:1.2rem">Advisors &amp; governance</p>
+      <p class="eyebrow reveal" style="margin-bottom:1.2rem"><span class="t-en">Advisors &amp; governance</span><span class="t-zh">顾问与治理</span></p>
       <div class="super reveal">
         <div class="mono-av photo face-ps" role="img" aria-label="Prof. Pak Sham"></div>
         <div>
-          <h3>Prof. Pak Sham · 沈柏松</h3>
-          <div class="role">Scientific Supervisor · The University of Hong Kong</div>
-          <p>Suen Chi-Sun Professor in Clinical Science and Chair Professor of Psychiatric Genetics at HKU; Founding Director of the Pan-Omics Centre and Co-director of the National Key Lab of Brain &amp; Cognitive Sciences.</p>
+          <h3><span class="t-en">Prof. Pak Sham · 沈柏松</span><span class="t-zh">沈柏松 教授</span></h3>
+          <div class="role"><span class="t-en">Scientific Supervisor · The University of Hong Kong</span><span class="t-zh">科学导师 · 香港大学</span></div>
+          <p><span class="t-en">Suen Chi-Sun Professor in Clinical Science and Chair Professor of Psychiatric Genetics at HKU; Founding Director of the Pan-Omics Centre and Co-director of the National Key Lab of Brain &amp; Cognitive Sciences.</span><span class="t-zh">香港大学 Suen Chi-Sun 临床科学讲座教授、精神遗传学讲座教授；泛组学中心创始主任，脑与认知科学国家重点实验室联合主任。</span></p>
           <div class="credits">
             <span>H-index 154</span>
-            <span>160K+ citations</span>
-            <span>Top-20 most-cited Chinese medical scientist (2022–25)</span>
+            <span class="t-en"><span>160K+ citations</span></span><span class="t-zh"><span>被引逾 16 万次</span></span>
+            <span><span class="t-en">Top-20 most-cited Chinese medical scientist (2022–25)</span><span class="t-zh">全球华人医学科学家被引前 20（2022–25）</span></span>
           </div>
         </div>
       </div>
 
       <div class="grid advisors">
-        <div class="adv reveal"><div class="r">Scientific Advisor</div><h4>Dr. Thach Quoc Thuan</h4><span>HKU, Hong Kong</span></div>
-        <div class="adv reveal"><div class="r">Legal Counsel</div><h4>Ms. Shen Xiaoyu</h4><span>Fudan University, Shanghai</span></div>
-        <div class="adv reveal"><div class="r">Business Advisor</div><h4>Ms. Alison Chan</h4><span>Nanfung Group, Hong Kong</span></div>
-        <div class="adv reveal"><div class="r">Supervisory Board</div><h4>Yang Jiajie</h4><span>Fudan University, Shanghai</span></div>
+        <div class="adv reveal"><span class="t-en"><div class="r">Scientific Advisor</div></span><span class="t-zh"><div class="r">科学顾问</div></span><h4>Dr. Thach Quoc Thuan</h4><span class="t-en"><span>HKU, Hong Kong</span></span><span class="t-zh"><span>香港大学</span></span></div>
+        <div class="adv reveal"><span class="t-en"><div class="r">Legal Counsel</div></span><span class="t-zh"><div class="r">法律顾问</div></span><span class="t-en"><h4>Ms. Shen Xiaoyu</h4></span><span class="t-zh"><h4>沈晓雨 女士</h4></span><span class="t-en"><span>Fudan University, Shanghai</span></span><span class="t-zh"><span>复旦大学 · 上海</span></span></div>
+        <div class="adv reveal"><span class="t-en"><div class="r">Business Advisor</div></span><span class="t-zh"><div class="r">商业顾问</div></span><span class="t-en"><h4>Ms. Alison Chan</h4></span><span class="t-zh"><h4>Alison Chan 女士</h4></span><span class="t-en"><span>Nanfung Group, Hong Kong</span></span><span class="t-zh"><span>南丰集团 · 香港</span></span></div>
+        <div class="adv reveal"><span class="t-en"><div class="r">Supervisory Board</div></span><span class="t-zh"><div class="r">监事会</div></span><span class="t-en"><h4>Yang Jiajie</h4></span><span class="t-zh"><h4>杨嘉杰</h4></span><span class="t-en"><span>Fudan University, Shanghai</span></span><span class="t-zh"><span>复旦大学 · 上海</span></span></div>
       </div>
     </div>
   </section>
@@ -936,27 +946,27 @@ section[id]{scroll-margin-top:5.2rem}
   <section class="section" id="recognition">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">Recognition</p>
-        <h2>Awards, grants &amp; incubation.</h2>
+        <span class="t-en"><p class="eyebrow">Recognition</p></span><span class="t-zh"><p class="eyebrow">荣誉</p></span>
+        <h2><span class="t-en">Awards, grants &amp; incubation.</span><span class="t-zh">奖项、资助与孵化。</span></h2>
       </div>
       <div class="grid rec-grid">
         <div class="rec-col reveal">
-          <h4>Competitions &amp; honours</h4>
+          <h4><span class="t-en">Competitions &amp; honours</span><span class="t-zh">赛事与荣誉</span></h4>
           <ul class="rec-list">
-            <li><b>Merit Award · Top 10 — “Maker in China” (HK)</b><span class="meta">2025</span></li>
-            <li><b>National Bronze — China Int'l “Internet+”</b><span class="meta">2023 &amp; 2025</span></li>
-            <li><b>National Bronze — “Challenge Cup” Entrepreneurship</b><span class="meta">2024</span></li>
-            <li><b>Top 10 — HK Value Creation for Technology Pitching</b><span class="meta">2026</span></li>
-            <li><b>2nd Prize — HKU Student Innovation &amp; Entrepreneurship</b><span class="meta">2023</span></li>
+            <li><b><span class="t-en">Merit Award · Top 10 — “Maker in China” (HK)</span><span class="t-zh">优胜奖 · 前十 —— 创客中国（香港赛区）</span></b><span class="meta">2025</span></li>
+            <li><b><span class="t-en">National Bronze — China Int'l “Internet+”</span><span class="t-zh">全国铜奖 —— 中国国际“互联网+”大赛</span></b><span class="meta">2023 &amp; 2025</span></li>
+            <li><b><span class="t-en">National Bronze — “Challenge Cup” Entrepreneurship</span><span class="t-zh">全国铜奖 —— “挑战杯”创业大赛</span></b><span class="meta">2024</span></li>
+            <li><b><span class="t-en">Top 10 — HK Value Creation for Technology Pitching</span><span class="t-zh">前十 —— 香港科技创业价值创造路演赛</span></b><span class="meta">2026</span></li>
+            <li><b><span class="t-en">2nd Prize — HKU Student Innovation &amp; Entrepreneurship</span><span class="t-zh">二等奖 —— 香港大学学生创新创业大赛</span></b><span class="meta">2023</span></li>
           </ul>
         </div>
         <div class="rec-col reveal">
-          <h4>Grants &amp; incubation</h4>
+          <h4><span class="t-en">Grants &amp; incubation</span><span class="t-zh">资助与孵化</span></h4>
           <ul class="rec-list">
-            <li><b>HKSTP Incubation Programme</b><span class="meta">Since 2024</span></li>
-            <li><b>HKSTP Ideation ✕ HKU iDendron SEED</b><span class="meta">2024</span></li>
-            <li><b>Cyberport CCMF</b><span class="meta">2023</span></li>
-            <li><b>Hong Kong Government funding schemes</b><span class="meta">Awardee</span></li>
+            <li><b><span class="t-en">HKSTP Incubation Programme</span><span class="t-zh">香港科技园孵化计划</span></b><span class="t-en"><span class="meta">Since 2024</span></span><span class="t-zh"><span class="meta">2024 起</span></span></li>
+            <li><b><span class="t-en">HKSTP Ideation ✕ HKU iDendron SEED</span><span class="t-zh">香港科技园 Ideation ✕ 港大 iDendron SEED</span></b><span class="meta">2024</span></li>
+            <li><span class="t-en"><b>Cyberport CCMF</b></span><span class="t-zh"><b>数码港 CCMF</b></span><span class="meta">2023</span></li>
+            <li><b><span class="t-en">Hong Kong Government funding schemes</span><span class="t-zh">香港政府资助计划</span></b><span class="t-en"><span class="meta">Awardee</span></span><span class="t-zh"><span class="meta">获资助</span></span></li>
           </ul>
         </div>
       </div>
@@ -966,25 +976,25 @@ section[id]{scroll-margin-top:5.2rem}
   <!-- ============ Closing / Contact ============ -->
   <section class="section closing" id="contact">
     <div class="wrap">
-      <p class="eyebrow" style="color:#9AB0FF">Predict · Prevent · Personalize</p>
-      <h2>Predict disease. Prevent illness. <em>Personalize health — for life.</em></h2>
-      <p class="lead">Whether you're a hospital, clinic, insurer, investor or partner — or simply want to see the twin in action — we'd love to hear from you.</p>
+      <p class="eyebrow" style="color:#9AB0FF"><span class="t-en">Predict · Prevent · Personalize</span><span class="t-zh">预见 · 预防 · 个性化</span></p>
+      <h2><span class="t-en">Predict disease. Prevent illness. <em>Personalize health — for life.</em></span><span class="t-zh">预见疾病。主动预防。<em>个性化健康 —— 陪伴一生。</em></span></h2>
+      <p class="lead"><span class="t-en">Whether you're a hospital, clinic, insurer, investor or partner — or simply want to see the twin in action — we'd love to hear from you.</span><span class="t-zh">无论你是医院、诊所、保险公司、投资人还是合作伙伴 —— 或只是想看看数字孪生的实际运行 —— 我们都期待与你交流。</span></p>
       <div class="contact-grid">
         <div>
-          <a class="btn btn-white" href="https://2health.ai" target="_blank" rel="noopener" style="margin-bottom:0">Launch the platform
+          <a class="btn btn-white" href="https://2health.ai" target="_blank" rel="noopener" style="margin-bottom:0"><span class="t-en">Launch the platform</span><span class="t-zh">进入平台</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
         <div class="contact-card">
           <ul class="contact-list">
-            <li><span class="k">Founder &amp; CEO</span><a class="v" href="https://lanechen.xyz" target="_blank" rel="noopener">Dr. Lane Chen (Chen Guolan) <span aria-hidden="true" style="opacity:.55">↗</span></a></li>
-            <li><span class="k">Email</span><a class="v" href="mailto:lanechen@2health.ai">lanechen@2health.ai</a></li>
+            <li><span class="t-en"><span class="k">Founder &amp; CEO</span></span><span class="t-zh"><span class="k">创始人兼 CEO</span></span><a class="v" href="https://lanechen.xyz" target="_blank" rel="noopener"><span class="t-en">Dr. Lane Chen (Chen Guolan)</span><span class="t-zh">陈国蓝 Lane Chen</span> <span aria-hidden="true" style="opacity:.55">↗</span></a></li>
+            <li><span class="t-en"><span class="k">Email</span></span><span class="t-zh"><span class="k">邮箱</span></span><a class="v" href="mailto:lanechen@2health.ai">lanechen@2health.ai</a></li>
             <li><span class="k">WhatsApp</span><a class="v" href="https://wa.me/85246404365" target="_blank" rel="noopener">+852 4640 4365</a></li>
-            <li><span class="k">WeChat</span><span class="v">lane13318032043</span></li>
-            <li><span class="k">Web</span><span class="v">2health.cn · 2health.ai</span></li>
+            <li><span class="t-en"><span class="k">WeChat</span></span><span class="t-zh"><span class="k">微信</span></span><span class="v">lane13318032043</span></li>
+            <li><span class="t-en"><span class="k">Web</span></span><span class="t-zh"><span class="k">网站</span></span><span class="v">2health.cn · 2health.ai</span></li>
           </ul>
           <div class="contact-cta">
-            <a class="btn btn-primary" href="mailto:lanechen@2health.ai">Email us
+            <a class="btn btn-primary" href="mailto:lanechen@2health.ai"><span class="t-en">Email us</span><span class="t-zh">发邮件给我们</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
             </a>
           </div>
@@ -1002,39 +1012,39 @@ section[id]{scroll-margin-top:5.2rem}
         <a class="brand" href="#top" aria-label="2Health AI — home">
           <span class="brand-logo" aria-hidden="true"></span>
         </a>
-        <p>The world's first Human Digital Twin operating system — predicting disease, preventing illness, and personalizing health for life.</p>
-        <p class="zh">以人工智能賦能醫療健康</p>
+        <p><span class="t-en">The world's first Human Digital Twin operating system — predicting disease, preventing illness, and personalizing health for life.</span><span class="t-zh">全球首个人类数字孪生操作系统 —— 预见疾病、主动预防，并为一生提供个性化健康管理。</span></p>
+        <p class="zh">以人工智能赋能医疗健康</p>
       </div>
       <div class="fcol">
-        <h5>Company</h5>
+        <span class="t-en"><h5>Company</h5></span><span class="t-zh"><h5>公司</h5></span>
         <ul>
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#platform">Platform</a></li>
-          <li><a href="#why">Why 2Health AI</a></li>
-          <li><a href="#pipeline">Pipeline</a></li>
+          <li><span class="t-en"><a href="#vision">Vision</a></span><span class="t-zh"><a href="#vision">愿景</a></span></li>
+          <li><span class="t-en"><a href="#platform">Platform</a></span><span class="t-zh"><a href="#platform">平台</a></span></li>
+          <li><span class="t-en"><a href="#why">Why 2Health AI</a></span><span class="t-zh"><a href="#why">为何选择 2Health AI</a></span></li>
+          <li><span class="t-en"><a href="#pipeline">Pipeline</a></span><span class="t-zh"><a href="#pipeline">管线</a></span></li>
         </ul>
       </div>
       <div class="fcol">
-        <h5>Explore</h5>
+        <span class="t-en"><h5>Explore</h5></span><span class="t-zh"><h5>探索</h5></span>
         <ul>
-          <li><a href="#technology">Technology</a></li>
-          <li><a href="#traction">Traction</a></li>
-          <li><a href="#trust">Trust &amp; privacy</a></li>
-          <li><a href="#recognition">Recognition</a></li>
+          <li><span class="t-en"><a href="#technology">Technology</a></span><span class="t-zh"><a href="#technology">技术</a></span></li>
+          <li><span class="t-en"><a href="#traction">Traction</a></span><span class="t-zh"><a href="#traction">进展</a></span></li>
+          <li><span class="t-en"><a href="#trust">Trust &amp; privacy</a></span><span class="t-zh"><a href="#trust">信任与隐私</a></span></li>
+          <li><span class="t-en"><a href="#recognition">Recognition</a></span><span class="t-zh"><a href="#recognition">荣誉</a></span></li>
         </ul>
       </div>
       <div class="fcol">
-        <h5>Contact</h5>
+        <span class="t-en"><h5>Contact</h5></span><span class="t-zh"><h5>联系</h5></span>
         <ul>
           <li><a href="mailto:lanechen@2health.ai">lanechen@2health.ai</a></li>
           <li><a href="https://wa.me/85246404365" target="_blank" rel="noopener">WhatsApp +852 4640 4365</a></li>
-          <li style="color:rgba(255,255,255,.82)">WeChat · lane13318032043</li>
-          <li><a href="#contact">Hong Kong · HKSTP</a></li>
+          <li style="color:rgba(255,255,255,.82)"><span class="t-en">WeChat · lane13318032043</span><span class="t-zh">微信 · lane13318032043</span></li>
+          <li><span class="t-en"><a href="#contact">Hong Kong · HKSTP</a></span><span class="t-zh"><a href="#contact">香港 · 科技园</a></span></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> 2HEALTH AI LIMITED · Incorporated in Hong Kong · An HKSTP partner company · Partnered with <a href="https://gene2h.com" target="_blank" rel="noopener">Gene to Health Limited</a></span>
+      <span>© <span id="year">2026</span> 2HEALTH AI LIMITED · <span class="t-en">Incorporated in Hong Kong</span><span class="t-zh">于香港注册成立</span> · <span class="t-en">An HKSTP partner company</span><span class="t-zh">香港科技园孵化企业</span> · <span class="t-en">Partnered with </span><span class="t-zh">合作方 </span><a href="https://gene2h.com" target="_blank" rel="noopener">Gene to Health Limited</a></span>
       <span><a href="https://2health.cn" target="_blank" rel="noopener">2health.cn</a> · <a href="https://2health.ai" target="_blank" rel="noopener">2health.ai</a></span>
     </div>
   </div>
@@ -1050,6 +1060,10 @@ section[id]{scroll-margin-top:5.2rem}
   function currentTheme(){var t=root.getAttribute("data-theme");return (t==="dark"||t==="light")?t:(prefersDark.matches?"dark":"light");}
   var themeBtn=document.getElementById("themeToggle");
   if(themeBtn){themeBtn.addEventListener("click",function(){root.setAttribute("data-theme",currentTheme()==="dark"?"light":"dark");});}
+
+  /* Language toggle */
+  var langBtn=document.getElementById("langToggle");
+  if(langBtn){langBtn.addEventListener("click",function(){var zh=root.classList.toggle("lang-zh");langBtn.setAttribute("aria-pressed",zh?"true":"false");try{root.lang=zh?"zh-CN":"en";}catch(e){}});}
 
   /* Mobile menu */
   var header=document.querySelector(".site-header");
