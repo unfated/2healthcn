@@ -435,6 +435,25 @@ section[id]{scroll-margin-top:5.2rem}
 :root.lang-zh .t-en{display:none}
 :root.lang-zh .t-zh{display:inline}
 .lang-toggle{font-family:var(--font-sans);font-size:.82rem;font-weight:650}
+.shots-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 1rem;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.shots-head .subhead{margin:0}
+.shots-note{font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.1rem}
+.shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.shot:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.shot-img{display:block;aspect-ratio:2000/969;overflow:hidden;background:var(--surface-2);cursor:zoom-in}
+.shot-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.shot:hover .shot-img img{transform:scale(1.03)}
+.shot figcaption{padding:.95rem 1.1rem 1.1rem;display:grid;gap:.25rem;border-top:1px solid var(--line)}
+.shot figcaption b{font-size:.98rem;font-weight:650}
+.shot figcaption span{font-size:.86rem;color:var(--muted);line-height:1.45}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(96vw,1600px);max-height:92vh;overflow:visible}
+.lightbox::backdrop{background:rgba(5,8,25,.82);backdrop-filter:blur(4px)}
+.lightbox img{display:block;max-width:min(96vw,1600px);max-height:88vh;width:auto;height:auto;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.lb-close{position:absolute;top:-2.6rem;right:0;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;font-size:1.3rem;line-height:1;cursor:pointer}
+@media (max-width:980px){.shots{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.shots{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.shot:hover,.shot:hover .shot-img img{transform:none}}
 </style>
 
 <!-- ============ Header ============ -->
@@ -670,7 +689,7 @@ section[id]{scroll-margin-top:5.2rem}
         <div class="iface-card reveal">
           <div class="iface-top">
             <span class="t-en"><div><h3>Personal</h3><div class="sub">Your lifelong health twin</div></div></span><span class="t-zh"><div><h3>个人端</h3><div class="sub">你的终身健康孪生</div></div></span>
-            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/></svg><span class="pct">90%</span></div>
+            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="1.51"/></svg><span class="pct">99%</span></div>
           </div>
           <ul>
             <span class="t-en"><li>Full-life-cycle health management</li></span><span class="t-zh"><li>全生命周期健康管理</li></span>
@@ -684,7 +703,7 @@ section[id]{scroll-margin-top:5.2rem}
         <div class="iface-card reveal">
           <div class="iface-top">
             <span class="t-en"><div><h3>Doctor</h3><div class="sub">Digital public infrastructure</div></div></span><span class="t-zh"><div><h3>医生端</h3><div class="sub">数字公共基础设施</div></div></span>
-            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/></svg><span class="pct">90%</span></div>
+            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="7.54"/></svg><span class="pct">95%</span></div>
           </div>
           <ul>
             <span class="t-en"><li>Telemedicine &amp; appointment management</li></span><span class="t-zh"><li>远程问诊与预约管理</li></span>
@@ -698,7 +717,7 @@ section[id]{scroll-margin-top:5.2rem}
         <div class="iface-card reveal">
           <div class="iface-top">
             <span class="t-en"><div><h3>Supplier</h3><div class="sub">Verified health commerce</div></div></span><span class="t-zh"><div><h3>供应商端</h3><div class="sub">可信健康电商</div></div></span>
-            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="45.24"/></svg><span class="pct">70%</span></div>
+            <div class="ring"><svg viewBox="0 0 56 56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/></svg><span class="pct">90%</span></div>
           </div>
           <ul>
             <span class="t-en"><li>Verified merchant &amp; clinic onboarding</li></span><span class="t-zh"><li>认证商户与诊所入驻</li></span>
@@ -710,6 +729,28 @@ section[id]{scroll-margin-top:5.2rem}
           <p class="more"><span class="t-en">Commission / GMV-share revenue</span><span class="t-zh">佣金 / GMV 分成收入</span></p>
         </div>
       </div>
+      <div class="shots-head reveal">
+        <p class="subhead"><span class="t-en">Product in action</span><span class="t-zh">产品界面实拍</span></p>
+        <p class="shots-note"><span class="t-en">Real interface, demo data · click to enlarge</span><span class="t-zh">真实界面，演示数据 · 点击放大</span></p>
+      </div>
+      <div class="shots">
+        <figure class="shot reveal">
+          <a class="shot-img" href="assets/platform-user.jpg" target="_blank" rel="noopener" data-lightbox aria-label="Personal app home and health capital"><img src="assets/platform-user.jpg" alt="Personal app home and health capital" loading="lazy" width="2000" height="969"></a>
+          <figcaption><b><span class="t-en">Personal app · Home</span><span class="t-zh">个人端 · 用户首页</span></b><span><span class="t-en">Your day, health records, personal center and health mall.</span><span class="t-zh">你的一天、健康数据、个人中心与健康商城。</span></span></figcaption>
+        </figure>
+        <figure class="shot reveal">
+          <a class="shot-img" href="assets/platform-ai-assistant.jpg" target="_blank" rel="noopener" data-lightbox aria-label="AI health assistant and multi-omics health management"><img src="assets/platform-ai-assistant.jpg" alt="AI health assistant and multi-omics health management" loading="lazy" width="2000" height="969"></a>
+          <figcaption><b><span class="t-en">AI health assistant</span><span class="t-zh">AI 健康助手 · 多组学健康管理</span></b><span><span class="t-en">Report reading, risk trajectory, vital signs and AI consultation.</span><span class="t-zh">报告解读、风险轨迹、生命体征与 AI 问诊。</span></span></figcaption>
+        </figure>
+        <figure class="shot reveal">
+          <a class="shot-img" href="assets/platform-doctor.jpg" target="_blank" rel="noopener" data-lightbox aria-label="2HAI Doctor workbench"><img src="assets/platform-doctor.jpg" alt="2HAI Doctor workbench" loading="lazy" width="2000" height="969"></a>
+          <figcaption><b><span class="t-en">Doctor workbench · 2HAI Doctor</span><span class="t-zh">医生端工作台 · 2HAI Doctor</span></b><span><span class="t-en">Patient access, queueing, telemedicine and practice income.</span><span class="t-zh">患者授权、排队就诊、远程问诊与执业收入。</span></span></figcaption>
+        </figure>
+      </div>
+      <dialog class="lightbox" id="lightbox" aria-label="Screenshot preview">
+        <button class="lb-close" type="button" aria-label="Close">×</button>
+        <img alt="">
+      </dialog>
     </div>
   </section>
 
@@ -1104,6 +1145,17 @@ section[id]{scroll-margin-top:5.2rem}
   /* Language toggle */
   var langBtn=document.getElementById("langToggle");
   if(langBtn){langBtn.addEventListener("click",function(){var zh=root.classList.toggle("lang-zh");langBtn.setAttribute("aria-pressed",zh?"true":"false");try{root.lang=zh?"zh-CN":"en";}catch(e){}});}
+
+  /* Screenshot lightbox */
+  var lb=document.getElementById("lightbox");
+  if(lb&&typeof lb.showModal==="function"){
+    var lbImg=lb.querySelector("img");
+    document.querySelectorAll("[data-lightbox]").forEach(function(a){
+      a.addEventListener("click",function(e){e.preventDefault();lbImg.src=a.getAttribute("href");lbImg.alt=a.getAttribute("aria-label")||"";lb.showModal();});
+    });
+    lb.querySelector(".lb-close").addEventListener("click",function(){lb.close();});
+    lb.addEventListener("click",function(e){if(e.target===lb)lb.close();});
+  }
 
   /* Mobile menu */
   var header=document.querySelector(".site-header");
