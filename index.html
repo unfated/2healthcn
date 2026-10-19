@@ -306,8 +306,8 @@ img,svg,canvas{display:block;max-width:100%}
 .super .role{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:.3rem 0 .7rem}
 .super p{color:var(--muted);font-size:.94rem;line-height:1.55;max-width:70ch}
 .super .credits{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.9rem;font-family:var(--font-mono);font-size:.74rem;color:var(--ink)}
-.super .credits span{display:inline-flex;align-items:center;gap:.45rem}
-.super .credits span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.super .credits > span{display:inline-flex;align-items:center;gap:.45rem}
+.super .credits > span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
 .advisors{grid-template-columns:repeat(4,1fr);gap:.8rem}
 .adv{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem 1.2rem}
 .adv .r{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
@@ -335,6 +335,8 @@ img,svg,canvas{display:block;max-width:100%}
 .contact-list .k{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#9AA6DC}
 .contact-list .v{font-size:1.02rem;color:#fff;text-decoration:none}
 .contact-list a.v:hover{color:#9AB0FF}
+.contact-list .v-link{color:#fff;text-decoration:none}
+.contact-list .v-link:hover{color:#9AB0FF;text-decoration:underline}
 .contact-cta{display:flex;flex-wrap:wrap;gap:.8rem}
 .closing .lead{color:#C7CEEC}
 
@@ -460,7 +462,7 @@ section[id]{scroll-margin-top:5.2rem}
     <div class="wrap hero-grid">
       <div>
         <div class="badges">
-          <span class="badge"><span class="t-en">HKSTP Partner Company · Hong Kong</span><span class="t-zh">香港科技园孵化企业 · 香港</span></span>
+          <span class="badge"><span class="t-en">HKSTP Alumni Company · Hong Kong</span><span class="t-zh">香港科技园孵化毕业企业 · 香港</span></span>
           <span class="badge"><span class="live"></span><span class="t-en">Live at 2health.ai</span><span class="t-zh">已上线 · 2health.ai</span></span>
         </div>
         <h1><span class="t-en">The world's first <em>Human Digital Twin</em> operating system.</span><span class="t-zh">全球首个<em>人类数字孪生</em>操作系统。</span></h1>
@@ -906,6 +908,7 @@ section[id]{scroll-margin-top:5.2rem}
             <h3><span class="t-en">Dr. Lane Chen · 陈国蓝</span><span class="t-zh">陈国蓝 Lane Chen</span></h3>
             <div class="role"><span class="t-en">Founder · CEO · CTO · Director</span><span class="t-zh">创始人 · CEO · CTO · 董事</span></div>
             <p><span class="t-en">HKU PhD in statistical genetics &amp; machine learning; BSc in biostatistics, Fudan University. Leads the company's technology and product direction.</span><span class="t-zh">香港大学统计遗传学与机器学习博士，复旦大学生物统计学学士。主导公司技术与产品方向。</span></p>
+            <a class="card-link" href="https://lanechen.xyz/" target="_blank" rel="noopener">lanechen.xyz <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
         <div class="person reveal">
@@ -927,7 +930,7 @@ section[id]{scroll-margin-top:5.2rem}
           <p><span class="t-en">Suen Chi-Sun Professor in Clinical Science and Chair Professor of Psychiatric Genetics at HKU; Founding Director of the Pan-Omics Centre and Co-director of the National Key Lab of Brain &amp; Cognitive Sciences.</span><span class="t-zh">香港大学 Suen Chi-Sun 临床科学讲座教授、精神遗传学讲座教授；泛组学中心创始主任，脑与认知科学国家重点实验室联合主任。</span></p>
           <div class="credits">
             <span>H-index 154</span>
-            <span class="t-en"><span>160K+ citations</span></span><span class="t-zh"><span>被引逾 16 万次</span></span>
+            <span><span class="t-en">160K+ citations</span><span class="t-zh">被引逾 16 万次</span></span>
             <span><span class="t-en">Top-20 most-cited Chinese medical scientist (2022–25)</span><span class="t-zh">全球华人医学科学家被引前 20（2022–25）</span></span>
           </div>
         </div>
@@ -991,7 +994,7 @@ section[id]{scroll-margin-top:5.2rem}
             <li><span class="t-en"><span class="k">Email</span></span><span class="t-zh"><span class="k">邮箱</span></span><a class="v" href="mailto:lanechen@2health.ai">lanechen@2health.ai</a></li>
             <li><span class="k">WhatsApp</span><a class="v" href="https://wa.me/85246404365" target="_blank" rel="noopener">+852 4640 4365</a></li>
             <li><span class="t-en"><span class="k">WeChat</span></span><span class="t-zh"><span class="k">微信</span></span><span class="v">lane13318032043</span></li>
-            <li><span class="t-en"><span class="k">Web</span></span><span class="t-zh"><span class="k">网站</span></span><span class="v">2health.cn · 2health.ai</span></li>
+            <li><span class="t-en"><span class="k">Web</span></span><span class="t-zh"><span class="k">网站</span></span><span class="v"><a class="v-link" href="https://2health.cn" target="_blank" rel="noopener">2health.cn</a> · <a class="v-link" href="https://2health.ai" target="_blank" rel="noopener">2health.ai</a> · <a class="v-link" href="https://gene2h.com" target="_blank" rel="noopener">gene2h.com</a></span></li>
           </ul>
           <div class="contact-cta">
             <a class="btn btn-primary" href="mailto:lanechen@2health.ai"><span class="t-en">Email us</span><span class="t-zh">发邮件给我们</span>
@@ -1044,8 +1047,8 @@ section[id]{scroll-margin-top:5.2rem}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> 2HEALTH AI LIMITED · <span class="t-en">Incorporated in Hong Kong</span><span class="t-zh">于香港注册成立</span> · <span class="t-en">An HKSTP partner company</span><span class="t-zh">香港科技园孵化企业</span> · <span class="t-en">Partnered with </span><span class="t-zh">合作方 </span><a href="https://gene2h.com" target="_blank" rel="noopener">Gene to Health Limited</a></span>
-      <span><a href="https://2health.cn" target="_blank" rel="noopener">2health.cn</a> · <a href="https://2health.ai" target="_blank" rel="noopener">2health.ai</a></span>
+      <span>© <span id="year">2026</span> 2HEALTH AI LIMITED · <span class="t-en">Incorporated in Hong Kong</span><span class="t-zh">于香港注册成立</span> · <span class="t-en">HKSTP Alumni Company</span><span class="t-zh">香港科技园孵化毕业企业</span> · <span class="t-en">Partnered with </span><span class="t-zh">合作方 </span><a href="https://gene2h.com" target="_blank" rel="noopener">Gene to Health Limited</a></span>
+      <span><a href="https://2health.cn" target="_blank" rel="noopener">2health.cn</a> · <a href="https://2health.ai" target="_blank" rel="noopener">2health.ai</a> · <a href="https://gene2h.com" target="_blank" rel="noopener">gene2h.com</a></span>
     </div>
   </div>
 </footer>
