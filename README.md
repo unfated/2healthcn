@@ -6,7 +6,8 @@ Distinct from the product platform at **[2health.ai](https://2health.ai)**, whic
 
 ## Contents
 
-- `index.html` — the complete, self-contained website (single file, no build step, no external dependencies, no network requests).
+- `index.html` — the complete website (single file, no build step, no external dependencies, no network requests).
+- `assets/` — product screenshots shown in the Platform section (`platform-user.jpg`, `platform-ai-assistant.jpg`, `platform-doctor.jpg`; demo data).
 
 ## Sections
 
